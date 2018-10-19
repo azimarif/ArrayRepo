@@ -78,6 +78,14 @@ const minNumberInAList = function(numbers) {
   return minNumber;
 }
 
+const averageOfArray = function(numbers) {
+  let sum = calculateSum(numbers);
+  let numberOfTerms = numbers.length;
+  let average = sum / numberOfTerms;
+  return average.toFixed(2);
+}
+
+exports.averageOfArray = averageOfArray;
 exports.minNumberInAList= minNumberInAList;
 exports.maxNumberInAList = maxNumberInAList;
 exports.reverseFibonacciSeries =reverseFibonacciSeries;

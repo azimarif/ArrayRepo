@@ -50,4 +50,10 @@ assert.equal(-5, arrayLibrary.minNumberInAList([-1, -5, 0]));
 assert.equal(-10, arrayLibrary.minNumberInAList([-2, -5, -10]));
 assert.equal(2, arrayLibrary.minNumberInAList([4, 7, 2, 10]));
 
+//Average of a list
+assert.deepEqual(0, arrayLibrary.averageOfArray([0]));
+assert.deepEqual(0.50, arrayLibrary.averageOfArray([0, 1]));
+assert.deepEqual(-1.33, arrayLibrary.averageOfArray([1, -5, 0]));
+assert.deepEqual(3.00, arrayLibrary.averageOfArray([1, 6, 2]));
+
 console.log('All Tests Passed');
