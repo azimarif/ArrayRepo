@@ -67,6 +67,18 @@ const maxNumberInAList = function(numbers) {
   }
   return maxNumber;
 }
+
+const minNumberInAList = function(numbers) {
+  let minNumber = numbers[0];
+  for (let index = 1; index < numbers.length; index++) {
+    if (minNumber > numbers[index]) {
+      minNumber = numbers[index];
+    }
+  }
+  return minNumber;
+}
+
+exports.minNumberInAList= minNumberInAList;
 exports.maxNumberInAList = maxNumberInAList;
 exports.reverseFibonacciSeries =reverseFibonacciSeries;
 exports.selectEverySecondNo = selectEverySecondNo;

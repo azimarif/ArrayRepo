@@ -44,4 +44,10 @@ assert.deepEqual(0, arrayLibrary.maxNumberInAList([-1, -5, 0]));
 assert.deepEqual(-2, arrayLibrary.maxNumberInAList([-2, -5, -10]));
 assert.deepEqual(10, arrayLibrary.maxNumberInAList([4, 7, 2, 10]));
 
+//Lowest number in a list
+assert.equal(0, arrayLibrary.minNumberInAList([0]));
+assert.equal(-5, arrayLibrary.minNumberInAList([-1, -5, 0]));
+assert.equal(-10, arrayLibrary.minNumberInAList([-2, -5, -10]));
+assert.equal(2, arrayLibrary.minNumberInAList([4, 7, 2, 10]));
+
 console.log('All Tests Passed');
