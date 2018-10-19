@@ -32,4 +32,10 @@ assert.deepEqual([0], arrayLibrary.selectEverySecondNo([0]));
 assert.deepEqual([0], arrayLibrary.selectEverySecondNo([0, 1]));
 assert.deepEqual([30, 20], arrayLibrary.selectEverySecondNo([30, 35, 20, 15]));
 
+//Reverse Fibonacci Series
+assert.deepEqual([0], arrayLibrary.reverseFibonacciSeries(0));
+assert.deepEqual([0], arrayLibrary.reverseFibonacciSeries(1));
+assert.deepEqual([1, 0], arrayLibrary.reverseFibonacciSeries(2));
+assert.deepEqual([3, 2, 1, 1, 0], arrayLibrary.reverseFibonacciSeries(5));
+
 console.log('All Tests Passed');

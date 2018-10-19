@@ -42,6 +42,23 @@ const selectEverySecondNo = function(numbers) {
   return filteredArray;
 }
 
+const reverseFibonacciSeries = function(numberOfTerms) {
+  let fibonacciTerms = [];
+  let firstNumber = 0;
+  let secondNumber = 1;
+  let nextNumber = firstNumber + secondNumber;
+  for (let count = 1; count < numberOfTerms; count++) {
+    fibonacciTerms[count] = nextNumber;
+    nextNumber = firstNumber + secondNumber;
+    let temp = secondNumber;
+    secondNumber = firstNumber + secondNumber;
+    firstNumber = temp;
+  }
+  fibonacciTerms[0] = 0;
+  return reverseArray(fibonacciTerms);
+}
+
+exports.reverseFibonacciSeries =reverseFibonacciSeries;
 exports.selectEverySecondNo = selectEverySecondNo;
 exports.reverseArray = reverseArray;
 exports.calculateSum = calculateSum;
