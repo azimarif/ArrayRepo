@@ -226,6 +226,20 @@ const combineTwoArrays = function(firstElements, secondElements) {
   return uniqueArrayElements(firstElements.concat(secondElements));
 }
 
+const arrayIntersection = function(firstElements, secondElements) {
+  firstElements = uniqueArrayElements(firstElements);
+  secondElements = uniqueArrayElements(secondElements);
+  let intersectedArray = [];
+  let count = 0;
+  for (let index = 0; index < firstElements.length; index++) {
+    if (isElementExists(secondElements, firstElements[index])) {
+      intersectedArray.push(firstElements[index]);
+    }
+  }
+  return intersectedArray;
+}
+
+exports.arrayIntersection = arrayIntersection;
 exports.combineTwoArrays = combineTwoArrays;
 exports.uniqueArrayElements = uniqueArrayElements;
 exports.extractDigits = extractDigits;

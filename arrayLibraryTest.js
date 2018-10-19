@@ -138,4 +138,11 @@ assert.deepEqual([1, 2, 3, 4], arrayLibrary.combineTwoArrays([1, 2, 3], [3, 4]))
 assert.deepEqual([1, 2], arrayLibrary.combineTwoArrays([1], [2]));
 assert.deepEqual([1, 2, 3, 4], arrayLibrary.combineTwoArrays([1, 2], [3, 4]));
 
+//Intersection of Two Arrays
+assert.deepEqual([1, 2], arrayLibrary.arrayIntersection([1, 2], [1, 2]));
+assert.deepEqual([3], arrayLibrary.arrayIntersection([1, 2, 3], [3, 4]));
+assert.deepEqual([], arrayLibrary.arrayIntersection([1], [2]));
+assert.deepEqual([1], arrayLibrary.arrayIntersection([1, 2], [1, 3, 4]));
+assert.deepEqual([1], arrayLibrary.arrayIntersection([1, 1, 1], [1, 1]));
+
 console.log('All Tests Passed');
