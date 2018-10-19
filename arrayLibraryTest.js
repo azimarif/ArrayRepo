@@ -102,4 +102,10 @@ assert.deepEqual([0], arrayLibrary.loopThroughArray([0], arrayLibrary.sortArrayI
 assert.deepEqual([0, 1], arrayLibrary.loopThroughArray([0, 1], arrayLibrary.sortArrayInAscending));
 assert.deepEqual([15, 20, 30, 35], arrayLibrary.loopThroughArray([30, 35, 20, 15], arrayLibrary.sortArrayInAscending));
 
+//Descending order
+assert.deepEqual([], arrayLibrary.loopThroughArray([], arrayLibrary.sortArrayInDescending));
+assert.deepEqual([0], arrayLibrary.loopThroughArray([0], arrayLibrary.sortArrayInDescending));
+assert.deepEqual([1, 0], arrayLibrary.loopThroughArray([0, 1], arrayLibrary.sortArrayInDescending));
+assert.deepEqual([35, 30, 20, 15], arrayLibrary.loopThroughArray([30, 35, 20, 15], arrayLibrary.sortArrayInDescending));
+
 console.log('All Tests Passed');

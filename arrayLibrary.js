@@ -163,8 +163,16 @@ const loopThroughArray = function(numbers, sortBy) {
   return numbers;
 }
 
+const sortArrayInDescending = function(numbers) {
+  for (let index = 0; index < numbers.length - 1; index++) {
+    swapElements(index + 1, index, numbers);
+  }
+  return numbers;
+}
+
 exports.loopThroughArray = loopThroughArray;
 exports.sortArrayInAscending = sortArrayInAscending;
+exports.sortArrayInDescending = sortArrayInDescending;
 exports.findIndexOfNumber = findIndexOfNumber;
 exports.countNumbersBelowValue = countNumbersBelowValue;
 exports.countNumbersAboveValue = countNumbersAboveValue;
