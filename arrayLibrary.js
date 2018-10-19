@@ -202,6 +202,27 @@ const extractDigits = function(number) {
   return reverseArray(digits);
 }
 
+const isElementExists = function(numberArray, value) {
+  let status = false;
+  for (let index = 0; index < numberArray.length; index++) {
+    if (numberArray[index] == value) {
+      status = true;
+    }
+  }
+  return status;
+}
+
+const uniqueArrayElements = function(numbers) {
+  let uniqueArray = [];
+  for (let index = 0; index < numbers.length; index++) {
+    if (!isElementExists(uniqueArray, numbers[index])) {
+      uniqueArray.push(numbers[index]);
+    }
+  }
+  return uniqueArray;
+}
+
+exports.uniqueArrayElements = uniqueArrayElements;
 exports.extractDigits = extractDigits;
 exports.isDescending = isDescending;
 exports.isAscending = isAscending;

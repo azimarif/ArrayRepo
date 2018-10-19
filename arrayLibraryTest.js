@@ -126,4 +126,10 @@ assert.deepEqual([1, 0], arrayLibrary.extractDigits(10));
 assert.deepEqual([2, 7, 4, 3], arrayLibrary.extractDigits(2743));
 assert.deepEqual([1, 0, 0, 0], arrayLibrary.extractDigits(1000));
 
+//Unique Array Elements
+assert.deepEqual([], arrayLibrary.uniqueArrayElements([]));
+assert.deepEqual([0], arrayLibrary.uniqueArrayElements([0]));
+assert.deepEqual([0, 1], arrayLibrary.uniqueArrayElements([0, 1]));
+assert.deepEqual([0, 1, 4], arrayLibrary.uniqueArrayElements([0, 0, 1, 0, 4, 1]));
+
 console.log('All Tests Passed');
