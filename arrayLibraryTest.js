@@ -120,4 +120,10 @@ assert.equal(true, arrayLibrary.isDescending([2, 1]));
 assert.equal(true, arrayLibrary.isDescending([4, 2, 1]));
 assert.equal(false, arrayLibrary.isDescending([1, -5, 6]));
 
+//Extract digits
+assert.deepEqual([], arrayLibrary.extractDigits(0));
+assert.deepEqual([1, 0], arrayLibrary.extractDigits(10));
+assert.deepEqual([2, 7, 4, 3], arrayLibrary.extractDigits(2743));
+assert.deepEqual([1, 0, 0, 0], arrayLibrary.extractDigits(1000));
+
 console.log('All Tests Passed');

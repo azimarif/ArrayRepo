@@ -190,6 +190,19 @@ const isDescending = function(numbers) {
   return status;
 }
 
+const extractDigits = function(number) {
+  let digits = [];
+  let index = 0;
+  let numberToExtract = number;
+  while (numberToExtract > 0) {
+    digits[index] = numberToExtract % 10;
+    numberToExtract = Math.floor(numberToExtract / 10);
+    index++;
+  }
+  return reverseArray(digits);
+}
+
+exports.extractDigits = extractDigits;
 exports.isDescending = isDescending;
 exports.isAscending = isAscending;
 exports.loopThroughArray = loopThroughArray;
