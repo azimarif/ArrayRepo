@@ -112,6 +112,16 @@ const countEvenNumbers = function(numbers) {
   return count;
 }
 
+const countNumbersAboveValue = function(numbers, value) {
+  let count = 0;
+  for (let number of numbers) {
+    if (number > value) {
+      count = count + 1;
+    }
+  }
+  return count;
+}
+exports.countNumbersAboveValue = countNumbersAboveValue;
 exports.countEvenNumbers  = countEvenNumbers;
 exports.countOddNumbers = countOddNumbers;
 exports.mappingNamesLengthToArray= mappingNamesLengthToArray;

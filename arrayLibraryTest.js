@@ -76,4 +76,11 @@ assert.equal(2, arrayLibrary.countEvenNumbers([1, 2, 3, 4]));
 assert.equal(1, arrayLibrary.countEvenNumbers([1, -2]));
 assert.equal(2, arrayLibrary.countEvenNumbers([30, 35, 20, 15]));
 
+//Counting numbers above threshold value
+assert.equal(0, arrayLibrary.countNumbersAboveValue([], 5));
+assert.equal(0, arrayLibrary.countNumbersAboveValue([0], 1));
+assert.equal(2, arrayLibrary.countNumbersAboveValue([1, 2, 3, 4], 2));
+assert.equal(2, arrayLibrary.countNumbersAboveValue([1, -2], -4));
+assert.equal(2, arrayLibrary.countNumbersAboveValue([30, 35, 20, 15], 22));
+
 console.log('All Tests Passed');
