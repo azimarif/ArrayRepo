@@ -32,6 +32,17 @@ const reverseArray = function(numbers) {
   return reversedArray;
 }
 
+const selectEverySecondNo = function(numbers) {
+  let filteredArray = [];
+  let filteredArrayIndex = 0;
+  for (let index = 0; index < numbers.length; index = index + 2) {
+    filteredArray[filteredArrayIndex] = numbers[index];
+    filteredArrayIndex++;
+  }
+  return filteredArray;
+}
+
+exports.selectEverySecondNo = selectEverySecondNo;
 exports.reverseArray = reverseArray;
 exports.calculateSum = calculateSum;
 exports.filterEvenNumbers = filterEvenNumbers;

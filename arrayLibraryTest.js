@@ -26,4 +26,10 @@ assert.deepEqual([0], arrayLibrary.reverseArray([0]));
 assert.deepEqual([1, 0], arrayLibrary.reverseArray([0, 1]));
 assert.deepEqual([15, 20, 35, 30], arrayLibrary.reverseArray([30, 35, 20, 15]));
 
+//Selecting every second element
+assert.deepEqual([], arrayLibrary.selectEverySecondNo([]));
+assert.deepEqual([0], arrayLibrary.selectEverySecondNo([0]));
+assert.deepEqual([0], arrayLibrary.selectEverySecondNo([0, 1]));
+assert.deepEqual([30, 20], arrayLibrary.selectEverySecondNo([30, 35, 20, 15]));
+
 console.log('All Tests Passed');
