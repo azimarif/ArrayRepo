@@ -14,5 +14,14 @@ const filterEvenNumbers = function(numbers) {
   return evenNumbers[0];
 }
 
+const calculateSum = function(numbers) {
+  let sum = 0;
+  for (let number of numbers) {
+    sum = sum + number;
+  }
+  return sum;
+}
+
+exports.calculateSum = calculateSum;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.filterOddNumbers = filterOddNumbers;

@@ -13,4 +13,11 @@ assert.deepEqual([2], arrayLibrary.filterEvenNumbers([2]));
 assert.deepEqual([2], arrayLibrary.filterEvenNumbers([1, 2]));
 assert.deepEqual([2, 4, 6, 8], arrayLibrary.filterEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8]));
 
+//Sum of a list of numbers
+assert.deepEqual(0, arrayLibrary.calculateSum([]));
+assert.deepEqual(0, arrayLibrary.calculateSum([0]));
+assert.deepEqual(1, arrayLibrary.calculateSum([1]));
+assert.deepEqual(-4, arrayLibrary.calculateSum([1, -5]));
+assert.deepEqual(100, arrayLibrary.calculateSum([30, 35, 20, 15]));
+
 console.log('All Tests Passed');
