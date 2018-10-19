@@ -83,4 +83,12 @@ assert.equal(2, arrayLibrary.countNumbersAboveValue([1, 2, 3, 4], 2));
 assert.equal(2, arrayLibrary.countNumbersAboveValue([1, -2], -4));
 assert.equal(2, arrayLibrary.countNumbersAboveValue([30, 35, 20, 15], 22));
 
+//Counting numbers below threshold value
+assert.equal(0, arrayLibrary.countNumbersBelowValue([], 5));
+assert.equal(1, arrayLibrary.countNumbersBelowValue([0], 1));
+assert.equal(1, arrayLibrary.countNumbersBelowValue([1, 2, 3, 4], 2));
+assert.equal(0, arrayLibrary.countNumbersBelowValue([1, -2], -4));
+assert.equal(2, arrayLibrary.countNumbersBelowValue([30, 35, 20, 15], 22));
+
+
 console.log('All Tests Passed');

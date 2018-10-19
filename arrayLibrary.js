@@ -121,6 +121,18 @@ const countNumbersAboveValue = function(numbers, value) {
   }
   return count;
 }
+
+const countNumbersBelowValue = function(numbers, value) {
+  let count = 0;
+  for (let number of numbers) {
+    if (value > number) {
+      count = count + 1;
+    }
+  }
+  return count;
+}
+
+exports.countNumbersBelowValue = countNumbersBelowValue;
 exports.countNumbersAboveValue = countNumbersAboveValue;
 exports.countEvenNumbers  = countEvenNumbers;
 exports.countOddNumbers = countOddNumbers;
