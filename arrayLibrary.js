@@ -222,6 +222,11 @@ const uniqueArrayElements = function(numbers) {
   return uniqueArray;
 }
 
+const combineTwoArrays = function(firstElements, secondElements) {
+  return uniqueArrayElements(firstElements.concat(secondElements));
+}
+
+exports.combineTwoArrays = combineTwoArrays;
 exports.uniqueArrayElements = uniqueArrayElements;
 exports.extractDigits = extractDigits;
 exports.isDescending = isDescending;
