@@ -92,6 +92,17 @@ const mappingNamesLengthToArray = function(names) {
   return namesLength;
 }
 
+const countOddNumbers = function(numbers) {
+  let count = 0;
+  for (let number of numbers) {
+    if (number % 2 != 0) {
+      count = count + 1;
+    }
+  }
+  return count;
+}
+
+exports.countOddNumbers = countOddNumbers;
 exports.mappingNamesLengthToArray= mappingNamesLengthToArray;
 exports.averageOfArray = averageOfArray;
 exports.minNumberInAList= minNumberInAList;

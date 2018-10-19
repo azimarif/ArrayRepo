@@ -62,4 +62,12 @@ assert.deepEqual([1], arrayLibrary.mappingNamesLengthToArray(['0']));
 assert.deepEqual([], arrayLibrary.mappingNamesLengthToArray([]));
 assert.deepEqual([8, 3], arrayLibrary.mappingNamesLengthToArray(["Infinity", "War"]));
 
+//Counting odd numbers
+assert.equal(0, arrayLibrary.countOddNumbers([]));
+assert.equal(0, arrayLibrary.countOddNumbers([0]));
+assert.equal(2, arrayLibrary.countOddNumbers([1, 2, 3, 4]));
+assert.equal(1, arrayLibrary.countOddNumbers([1, -2]));
+assert.equal(2, arrayLibrary.countOddNumbers([30, 35, 20, 15]));
+
+
 console.log('All Tests Passed');
