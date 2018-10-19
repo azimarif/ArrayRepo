@@ -165,4 +165,10 @@ assert.deepEqual([[1, 3], [2, undefined]], arrayLibrary.zipArrayElements([1, 2],
 assert.deepEqual([[1, -2], [-5, 4]], arrayLibrary.zipArrayElements([1, -5], [-2, 4]));
 assert.deepEqual([[3, 8], [4, 9]], arrayLibrary.zipArrayElements([3, 4], [8, 9]));
 
+//Rotate an Array by position
+assert.deepEqual([1], arrayLibrary.rotateArray([1], 0));
+assert.deepEqual([1, 2, 0], arrayLibrary.rotateArray([0, 1, 2], 1));
+assert.deepEqual([3, 0, 1, 5], arrayLibrary.rotateArray([0, 1, 5, 3], 3));
+assert.deepEqual([35, 20, 15, 30], arrayLibrary.rotateArray([30, 35, 20, 15], 1));
+
 console.log('All Tests Passed');

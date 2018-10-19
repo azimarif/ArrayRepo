@@ -269,6 +269,16 @@ const zipArrayElements = function(firstElements, secondElements) {
   }
   return zippedElements;
 }
+
+const rotateArray = function(elements, startingIndex) {
+  let count = 0;
+  for (let index = 0; index < startingIndex; index++) {
+    elements.push(elements.shift(index));
+  }
+  return elements;
+}
+
+exports.rotateArray = rotateArray;
 exports.zipArrayElements  = zipArrayElements;
 exports.isArraySubSet = isArraySubSet;
 exports.uniqueElementsFromFirstArray = uniqueElementsFromFirstArray;
