@@ -58,6 +58,16 @@ const reverseFibonacciSeries = function(numberOfTerms) {
   return reverseArray(fibonacciTerms);
 }
 
+const maxNumberInAList = function(numbers) {
+  let maxNumber = numbers[0];
+  for (let index = 1; index < numbers.length; index++) {
+    if (numbers[index] > maxNumber) {
+      maxNumber = numbers[index];
+    }
+  }
+  return maxNumber;
+}
+exports.maxNumberInAList = maxNumberInAList;
 exports.reverseFibonacciSeries =reverseFibonacciSeries;
 exports.selectEverySecondNo = selectEverySecondNo;
 exports.reverseArray = reverseArray;

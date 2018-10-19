@@ -38,4 +38,10 @@ assert.deepEqual([0], arrayLibrary.reverseFibonacciSeries(1));
 assert.deepEqual([1, 0], arrayLibrary.reverseFibonacciSeries(2));
 assert.deepEqual([3, 2, 1, 1, 0], arrayLibrary.reverseFibonacciSeries(5));
 
+//Greatest number in a list
+assert.deepEqual(0, arrayLibrary.maxNumberInAList([0]));
+assert.deepEqual(0, arrayLibrary.maxNumberInAList([-1, -5, 0]));
+assert.deepEqual(-2, arrayLibrary.maxNumberInAList([-2, -5, -10]));
+assert.deepEqual(10, arrayLibrary.maxNumberInAList([4, 7, 2, 10]));
+
 console.log('All Tests Passed');
