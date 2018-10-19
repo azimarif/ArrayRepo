@@ -180,6 +180,17 @@ const isAscending = function(numbers) {
   return status;
 }
 
+const isDescending = function(numbers) {
+  let status = true;
+  for (let index = 0; index < numbers.length - 1; index++) {
+    if (numbers[index + 1] > numbers[index]) {
+      status = false;
+    }
+  }
+  return status;
+}
+
+exports.isDescending = isDescending;
 exports.isAscending = isAscending;
 exports.loopThroughArray = loopThroughArray;
 exports.sortArrayInAscending = sortArrayInAscending;

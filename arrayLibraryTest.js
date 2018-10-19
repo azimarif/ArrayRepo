@@ -114,4 +114,10 @@ assert.equal(true, arrayLibrary.isAscending([1, 2]));
 assert.equal(true, arrayLibrary.isAscending([1, 2, 4]));
 assert.equal(false, arrayLibrary.isAscending([1, -5, 6]));
 
+//Descending order
+assert.equal(true, arrayLibrary.isDescending([]));
+assert.equal(true, arrayLibrary.isDescending([2, 1]));
+assert.equal(true, arrayLibrary.isDescending([4, 2, 1]));
+assert.equal(false, arrayLibrary.isDescending([1, -5, 6]));
+
 console.log('All Tests Passed');
