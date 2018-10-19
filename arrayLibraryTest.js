@@ -158,4 +158,11 @@ assert.equal(false, arrayLibrary.isArraySubSet([1, 2], [3]));
 assert.equal(false, arrayLibrary.isArraySubSet([1, -5], [2]));
 assert.equal(true, arrayLibrary.isArraySubSet([30, 35], [30, 35]));
 
+//Zip the array Elements
+assert.deepEqual([], arrayLibrary.zipArrayElements([], []));
+assert.deepEqual([[1, 1]], arrayLibrary.zipArrayElements([1], [1, 3]));
+assert.deepEqual([[1, 3], [2, undefined]], arrayLibrary.zipArrayElements([1, 2], [3]));
+assert.deepEqual([[1, -2], [-5, 4]], arrayLibrary.zipArrayElements([1, -5], [-2, 4]));
+assert.deepEqual([[3, 8], [4, 9]], arrayLibrary.zipArrayElements([3, 4], [8, 9]));
+
 console.log('All Tests Passed');

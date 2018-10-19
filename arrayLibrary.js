@@ -260,6 +260,16 @@ const isArraySubSet = function(firstElements, secondElements) {
   return true;
 }
 
+const zipArrayElements = function(firstElements, secondElements) {
+  let zippedElements = [];
+  for (let index = 0; index < firstElements.length; index++) {
+    zippedElements[index] = [];
+    zippedElements[index][0] = firstElements[index];
+    zippedElements[index][1] = secondElements[index];
+  }
+  return zippedElements;
+}
+exports.zipArrayElements  = zipArrayElements;
 exports.isArraySubSet = isArraySubSet;
 exports.uniqueElementsFromFirstArray = uniqueElementsFromFirstArray;
 exports.arrayIntersection = arrayIntersection;
