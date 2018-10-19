@@ -251,6 +251,16 @@ const uniqueElementsFromFirstArray = function(firstElements, secondElements) {
   return uniqueElements;
 }
 
+const isArraySubSet = function(firstElements, secondElements) {
+  for (let index = 0; index < secondElements.length; index++) {
+    if (!isElementExists(firstElements, secondElements[index])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+exports.isArraySubSet = isArraySubSet;
 exports.uniqueElementsFromFirstArray = uniqueElementsFromFirstArray;
 exports.arrayIntersection = arrayIntersection;
 exports.combineTwoArrays = combineTwoArrays;

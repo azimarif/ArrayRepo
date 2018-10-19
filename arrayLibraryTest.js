@@ -151,4 +151,11 @@ assert.deepEqual([1, 2], arrayLibrary.uniqueElementsFromFirstArray([1, 2, 3], [3
 assert.deepEqual([1], arrayLibrary.uniqueElementsFromFirstArray([1], [2]));
 assert.deepEqual([2], arrayLibrary.uniqueElementsFromFirstArray([1, 2], [1, 3, 4]));
 
+//Check if second Array is subset of first Array
+assert.equal(true, arrayLibrary.isArraySubSet([], []));
+assert.equal(true, arrayLibrary.isArraySubSet([1, 2], [1, 2]));
+assert.equal(false, arrayLibrary.isArraySubSet([1, 2], [3]));
+assert.equal(false, arrayLibrary.isArraySubSet([1, -5], [2]));
+assert.equal(true, arrayLibrary.isArraySubSet([30, 35], [30, 35]));
+
 console.log('All Tests Passed');
