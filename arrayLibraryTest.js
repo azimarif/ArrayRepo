@@ -90,5 +90,10 @@ assert.equal(1, arrayLibrary.countNumbersBelowValue([1, 2, 3, 4], 2));
 assert.equal(0, arrayLibrary.countNumbersBelowValue([1, -2], -4));
 assert.equal(2, arrayLibrary.countNumbersBelowValue([30, 35, 20, 15], 22));
 
+//Find the index of a Number
+assert.deepEqual(0, arrayLibrary.findIndexOfNumber([0], 0));
+assert.deepEqual(1, arrayLibrary.findIndexOfNumber([0, 1], 1));
+assert.deepEqual(2, arrayLibrary.findIndexOfNumber([0, 1, -8], -8));
+assert.deepEqual(3, arrayLibrary.findIndexOfNumber([0, 0, -5, 7, 4], 7));
 
 console.log('All Tests Passed');

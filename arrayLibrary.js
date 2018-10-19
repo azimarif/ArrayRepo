@@ -132,6 +132,15 @@ const countNumbersBelowValue = function(numbers, value) {
   return count;
 }
 
+const findIndexOfNumber = function(numbers, value) {
+  for (let index in numbers) {
+    if (numbers[index] == value) {
+      return index;
+    }
+  }
+}
+
+exports.findIndexOfNumber = findIndexOfNumber;
 exports.countNumbersBelowValue = countNumbersBelowValue;
 exports.countNumbersAboveValue = countNumbersAboveValue;
 exports.countEvenNumbers  = countEvenNumbers;
