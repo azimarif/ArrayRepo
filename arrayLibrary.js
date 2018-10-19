@@ -170,6 +170,17 @@ const sortArrayInDescending = function(numbers) {
   return numbers;
 }
 
+const isAscending = function(numbers) {
+  let status = true;
+  for (let index = 0; index < numbers.length - 1; index++) {
+    if (numbers[index] > numbers[index + 1]) {
+      status = false;
+    }
+  }
+  return status;
+}
+
+exports.isAscending = isAscending;
 exports.loopThroughArray = loopThroughArray;
 exports.sortArrayInAscending = sortArrayInAscending;
 exports.sortArrayInDescending = sortArrayInDescending;

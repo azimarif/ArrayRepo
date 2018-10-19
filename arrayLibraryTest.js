@@ -108,4 +108,10 @@ assert.deepEqual([0], arrayLibrary.loopThroughArray([0], arrayLibrary.sortArrayI
 assert.deepEqual([1, 0], arrayLibrary.loopThroughArray([0, 1], arrayLibrary.sortArrayInDescending));
 assert.deepEqual([35, 30, 20, 15], arrayLibrary.loopThroughArray([30, 35, 20, 15], arrayLibrary.sortArrayInDescending));
 
+//Ascending order
+assert.equal(true, arrayLibrary.isAscending([]));
+assert.equal(true, arrayLibrary.isAscending([1, 2]));
+assert.equal(true, arrayLibrary.isAscending([1, 2, 4]));
+assert.equal(false, arrayLibrary.isAscending([1, -5, 6]));
+
 console.log('All Tests Passed');
