@@ -145,4 +145,10 @@ assert.deepEqual([], arrayLibrary.arrayIntersection([1], [2]));
 assert.deepEqual([1], arrayLibrary.arrayIntersection([1, 2], [1, 3, 4]));
 assert.deepEqual([1], arrayLibrary.arrayIntersection([1, 1, 1], [1, 1]));
 
+//Elements that present in only first Array
+assert.deepEqual([], arrayLibrary.uniqueElementsFromFirstArray([1, 2], [1, 2]));
+assert.deepEqual([1, 2], arrayLibrary.uniqueElementsFromFirstArray([1, 2, 3], [3, 4]));
+assert.deepEqual([1], arrayLibrary.uniqueElementsFromFirstArray([1], [2]));
+assert.deepEqual([2], arrayLibrary.uniqueElementsFromFirstArray([1, 2], [1, 3, 4]));
+
 console.log('All Tests Passed');

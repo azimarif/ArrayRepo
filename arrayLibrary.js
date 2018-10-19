@@ -239,6 +239,19 @@ const arrayIntersection = function(firstElements, secondElements) {
   return intersectedArray;
 }
 
+const uniqueElementsFromFirstArray = function(firstElements, secondElements) {
+  let uniqueElements = [];
+  let count = 0;
+  for (let index = 0; index < firstElements.length; index++) {
+    if (!isElementExists(secondElements, firstElements[index])) {
+      uniqueElements[count] = firstElements[index];
+      count++;
+    }
+  }
+  return uniqueElements;
+}
+
+exports.uniqueElementsFromFirstArray = uniqueElementsFromFirstArray;
 exports.arrayIntersection = arrayIntersection;
 exports.combineTwoArrays = combineTwoArrays;
 exports.uniqueArrayElements = uniqueArrayElements;
