@@ -96,4 +96,10 @@ assert.deepEqual(1, arrayLibrary.findIndexOfNumber([0, 1], 1));
 assert.deepEqual(2, arrayLibrary.findIndexOfNumber([0, 1, -8], -8));
 assert.deepEqual(3, arrayLibrary.findIndexOfNumber([0, 0, -5, 7, 4], 7));
 
+//Ascending order
+assert.deepEqual([], arrayLibrary.loopThroughArray([], arrayLibrary.sortArrayInAscending));
+assert.deepEqual([0], arrayLibrary.loopThroughArray([0], arrayLibrary.sortArrayInAscending));
+assert.deepEqual([0, 1], arrayLibrary.loopThroughArray([0, 1], arrayLibrary.sortArrayInAscending));
+assert.deepEqual([15, 20, 30, 35], arrayLibrary.loopThroughArray([30, 35, 20, 15], arrayLibrary.sortArrayInAscending));
+
 console.log('All Tests Passed');

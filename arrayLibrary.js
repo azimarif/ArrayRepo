@@ -140,6 +140,31 @@ const findIndexOfNumber = function(numbers, value) {
   }
 }
 
+const swapElements = function(firstIndex, secondIndex, numbers) {
+  if (numbers[firstIndex] > numbers[secondIndex]) {
+    let oldValue = numbers[firstIndex];
+    numbers[firstIndex] = numbers[secondIndex];
+    numbers[secondIndex] = oldValue;
+  }
+  return numbers;
+}
+
+const sortArrayInAscending = function(numbers) {
+  for (let index = 0; index < numbers.length - 1; index++) {
+    swapElements(index, index + 1, numbers);
+  }
+  return numbers;
+}
+
+const loopThroughArray = function(numbers, sortBy) {
+  for (let counter = 0; counter < numbers.length; counter++) {
+    sortBy(numbers);
+  }
+  return numbers;
+}
+
+exports.loopThroughArray = loopThroughArray;
+exports.sortArrayInAscending = sortArrayInAscending;
 exports.findIndexOfNumber = findIndexOfNumber;
 exports.countNumbersBelowValue = countNumbersBelowValue;
 exports.countNumbersAboveValue = countNumbersAboveValue;
