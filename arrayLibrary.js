@@ -84,7 +84,15 @@ const averageOfArray = function(numbers) {
   let average = sum / numberOfTerms;
   return average.toFixed(2);
 }
+const mappingNamesLengthToArray = function(names) {
+  let namesLength = [];
+  for (let index = 0; index < names.length; index++) {
+    namesLength[index] = names[index].length;
+  }
+  return namesLength;
+}
 
+exports.mappingNamesLengthToArray= mappingNamesLengthToArray;
 exports.averageOfArray = averageOfArray;
 exports.minNumberInAList= minNumberInAList;
 exports.maxNumberInAList = maxNumberInAList;

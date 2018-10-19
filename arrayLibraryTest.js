@@ -56,4 +56,10 @@ assert.deepEqual(0.50, arrayLibrary.averageOfArray([0, 1]));
 assert.deepEqual(-1.33, arrayLibrary.averageOfArray([1, -5, 0]));
 assert.deepEqual(3.00, arrayLibrary.averageOfArray([1, 6, 2]));
 
+//Mapping lengths
+assert.deepEqual([4, 4, 6], arrayLibrary.mappingNamesLengthToArray(['Arif', 'Azim', 'Ansari']));
+assert.deepEqual([1], arrayLibrary.mappingNamesLengthToArray(['0']));
+assert.deepEqual([], arrayLibrary.mappingNamesLengthToArray([]));
+assert.deepEqual([8, 3], arrayLibrary.mappingNamesLengthToArray(["Infinity", "War"]));
+
 console.log('All Tests Passed');
