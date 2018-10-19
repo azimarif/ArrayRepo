@@ -1,6 +1,6 @@
 const filterOddNumbers = function(numbers) {
-  let oddNumbers = [[], []]; 
-  for (let number of numbers) { 
+  let oddNumbers = [[], []];
+  for (let number of numbers) {
     oddNumbers[number % 2].push(number);
   }
   return oddNumbers[1];
@@ -278,8 +278,22 @@ const rotateArray = function(elements, startingIndex) {
   return elements;
 }
 
+const partitionArray = function(elements, partitionElement) {
+  let partitionedArray = [[], []];
+  sortArrayInAscending(elements);
+  for (let index = 0; index < elements.length; index++) {
+    partitionedArray[1].push(elements[index]);
+    if (partitionElement >= elements[index]) {
+      partitionedArray[0].push(elements[index]);
+      partitionedArray[1].pop();
+    }
+  }
+  return partitionedArray;
+}
+
+exports.partitionArray = partitionArray;
 exports.rotateArray = rotateArray;
-exports.zipArrayElements  = zipArrayElements;
+exports.zipArrayElements = zipArrayElements;
 exports.isArraySubSet = isArraySubSet;
 exports.uniqueElementsFromFirstArray = uniqueElementsFromFirstArray;
 exports.arrayIntersection = arrayIntersection;
@@ -294,13 +308,13 @@ exports.sortArrayInDescending = sortArrayInDescending;
 exports.findIndexOfNumber = findIndexOfNumber;
 exports.countNumbersBelowValue = countNumbersBelowValue;
 exports.countNumbersAboveValue = countNumbersAboveValue;
-exports.countEvenNumbers  = countEvenNumbers;
+exports.countEvenNumbers = countEvenNumbers;
 exports.countOddNumbers = countOddNumbers;
-exports.mappingNamesLengthToArray= mappingNamesLengthToArray;
+exports.mappingNamesLengthToArray = mappingNamesLengthToArray;
 exports.averageOfArray = averageOfArray;
-exports.minNumberInAList= minNumberInAList;
+exports.minNumberInAList = minNumberInAList;
 exports.maxNumberInAList = maxNumberInAList;
-exports.reverseFibonacciSeries =reverseFibonacciSeries;
+exports.reverseFibonacciSeries = reverseFibonacciSeries;
 exports.selectEverySecondNo = selectEverySecondNo;
 exports.reverseArray = reverseArray;
 exports.calculateSum = calculateSum;

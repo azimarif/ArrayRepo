@@ -171,4 +171,10 @@ assert.deepEqual([1, 2, 0], arrayLibrary.rotateArray([0, 1, 2], 1));
 assert.deepEqual([3, 0, 1, 5], arrayLibrary.rotateArray([0, 1, 5, 3], 3));
 assert.deepEqual([35, 20, 15, 30], arrayLibrary.rotateArray([30, 35, 20, 15], 1));
 
+//Divide the array in two parts for the given number
+assert.deepEqual([[1, 2], [4, 5]], arrayLibrary.partitionArray([1, 2, 4, 5], 3));
+assert.deepEqual([[4, 2], [5, 6, 8]], arrayLibrary.partitionArray([5, 4, 2, 6, 8], 4));
+assert.deepEqual([[0], [1]], arrayLibrary.partitionArray([0, 1], 0));
+assert.deepEqual([[20, 15], [30, 35]], arrayLibrary.partitionArray([30, 35, 20, 15], 22));
+
 console.log('All Tests Passed');
