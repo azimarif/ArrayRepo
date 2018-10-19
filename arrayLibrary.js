@@ -22,6 +22,17 @@ const calculateSum = function(numbers) {
   return sum;
 }
 
+const reverseArray = function(numbers) {
+  let reversedArray = [];
+  let reversedArrayIndex = 0;
+  for (let index = numbers.length - 1; index >= 0; index--) {
+    reversedArray[reversedArrayIndex] = numbers[index];
+    reversedArrayIndex++;
+  }
+  return reversedArray;
+}
+
+exports.reverseArray = reverseArray;
 exports.calculateSum = calculateSum;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.filterOddNumbers = filterOddNumbers;

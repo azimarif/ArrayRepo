@@ -20,4 +20,10 @@ assert.deepEqual(1, arrayLibrary.calculateSum([1]));
 assert.deepEqual(-4, arrayLibrary.calculateSum([1, -5]));
 assert.deepEqual(100, arrayLibrary.calculateSum([30, 35, 20, 15]));
 
+//Printing array in reverse order
+assert.deepEqual([], arrayLibrary.reverseArray([]));
+assert.deepEqual([0], arrayLibrary.reverseArray([0]));
+assert.deepEqual([1, 0], arrayLibrary.reverseArray([0, 1]));
+assert.deepEqual([15, 20, 35, 30], arrayLibrary.reverseArray([30, 35, 20, 15]));
+
 console.log('All Tests Passed');
