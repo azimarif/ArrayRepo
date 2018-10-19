@@ -69,5 +69,11 @@ assert.equal(2, arrayLibrary.countOddNumbers([1, 2, 3, 4]));
 assert.equal(1, arrayLibrary.countOddNumbers([1, -2]));
 assert.equal(2, arrayLibrary.countOddNumbers([30, 35, 20, 15]));
 
+//Counting even numbers
+assert.equal(0, arrayLibrary.countEvenNumbers([]));
+assert.equal(1, arrayLibrary.countEvenNumbers([0]));
+assert.equal(2, arrayLibrary.countEvenNumbers([1, 2, 3, 4]));
+assert.equal(1, arrayLibrary.countEvenNumbers([1, -2]));
+assert.equal(2, arrayLibrary.countEvenNumbers([30, 35, 20, 15]));
 
 console.log('All Tests Passed');

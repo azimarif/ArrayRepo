@@ -102,6 +102,17 @@ const countOddNumbers = function(numbers) {
   return count;
 }
 
+const countEvenNumbers = function(numbers) {
+  let count = 0;
+  for (let number of numbers) {
+    if (number % 2 == 0) {
+      count = count + 1;
+    }
+  }
+  return count;
+}
+
+exports.countEvenNumbers  = countEvenNumbers;
 exports.countOddNumbers = countOddNumbers;
 exports.mappingNamesLengthToArray= mappingNamesLengthToArray;
 exports.averageOfArray = averageOfArray;
