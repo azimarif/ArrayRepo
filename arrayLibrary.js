@@ -37,10 +37,8 @@ const reverseArray = function(numbers) {
 
 const selectEverySecondNo = function(numbers) {
   let filteredArray = [];
-  let filteredArrayIndex = 0;
   for (let index = 0; index < numbers.length; index = index + 2) {
-    filteredArray[filteredArrayIndex] = numbers[index];
-    filteredArrayIndex++;
+    filteredArray.push(numbers[index]);
   }
   return filteredArray;
 }
