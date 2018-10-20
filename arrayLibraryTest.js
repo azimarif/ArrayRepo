@@ -12,13 +12,13 @@ const {isEven, complimentary ,filterOddNumbers, filterEvenNumbers,
   uniqueElementsFromFirstArray, isArraySubSet,zipArrayElements,rotateArray,
   partitionArray } =  require('./arrayLibrary.js');
 
+//Selecting odd numbers
 const testFilterOddNumbers = function(input, expectedOutput){
   let actualOutput = filterOddNumbers(input);
   let message = 'filterOddNumbers';
   assertDeepEqual({input , expectedOutput, actualOutput, message});
 }
 
-//Selecting odd numbers
 testFilterOddNumbers([0], []);
 testFilterOddNumbers([1], [1]);
 testFilterOddNumbers([-1], [-1]); 
@@ -26,17 +26,17 @@ testFilterOddNumbers([1,2], [1]);
 testFilterOddNumbers([1, 2, 3, 4, 5, 6, 7, 8], [1, 3, 5, 7]);
 
 //Selecting even numbers
-testCase1 = { input : [0], expectedOutput : [0], actualOutput : filterEvenNumbers([0]), message : 'Testing filterEvenNumbers' }
-testCase2 = { input : [1], expectedOutput : [], actualOutput : filterEvenNumbers([1]), message : 'Testing filterEvenNumbers' }
-testCase3 = { input : [2], expectedOutput : [2], actualOutput : filterEvenNumbers([2]), message : 'Testing filterEvenNumbers' }
-testCase4 = { input : [1,2], expectedOutput : [2], actualOutput : filterEvenNumbers([1,2]), message : 'Testing filterEvenNumbers' }
-testCase5 = { input : [1, 2, 3, 4, 5, 6, 7, 8], expectedOutput : [2,4,6,8], actualOutput : filterEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8]), message : 'Testing filterEvenNumbers' }
+const testFilterEvenNumbers = function(input, expectedOutput){
+  let actualOutput = filterEvenNumbers(input);
+  let message = 'filterEvenNumbers';
+  assertDeepEqual({input , expectedOutput, actualOutput, message});
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testFilterEvenNumbers([0], [0]);
+testFilterEvenNumbers([1], []);
+testFilterEvenNumbers([2], [2]);
+testFilterEvenNumbers([1,2], [2]);
+testFilterEvenNumbers([1,2,3,4,5,6,7,8], [2,4,6,8]);
 
 //Sum of a list of numbers
 testCase1 = { input : [], expectedOutput : 0, actualOutput : calculateSum([]), message : 'Testing calculateSum' }
