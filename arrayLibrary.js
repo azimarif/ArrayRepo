@@ -1,9 +1,9 @@
-const isEven = function(number){
-	return number % 2 == 0;
+const isEven = function(number) {
+  return number % 2 == 0;
 }
 
-const complimentary = function(functionToCompliment){
-	return function(args){
+const complimentary = function(functionToCompliment) {
+  return function(args) {
     return !functionToCompliment(args);
   }
 }
@@ -18,21 +18,20 @@ const filterEvenNumbers = function(numbers) {
   return numbers.filter(isEven);
 }
 
-const sumOfNumbersInList = function(sum,value){
+const sumOfNumbersInList = function(sum, value) {
   return sum + value;
 }
 
 const calculateSum = function(numbers) {
-  return numbers.reduce(sumOfNumbersInList,0);
+  return numbers.reduce(sumOfNumbersInList, 0);
 }
 
 const reverseArray = function(numbers) {
   let reversedArray = [];
-  let reversedArrayIndex = 0;
-  for (let index = numbers.length - 1; index >= 0; index--) {
-    reversedArray[reversedArrayIndex] = numbers[index];
-    reversedArrayIndex++;
-  }
+  numbers.reduce(function(array, number) {
+    array.unshift(number);
+    return array;
+  }, reversedArray);
   return reversedArray;
 }
 
@@ -200,8 +199,8 @@ const extractDigits = function(number) {
   let digits = [];
   let numberToExtract = number;
   while (numberToExtract != 0) {
-   digits.push(numberToExtract % 10);
-   numberToExtract = Math.floor(numberToExtract / 10);
+    digits.push(numberToExtract % 10);
+    numberToExtract = Math.floor(numberToExtract / 10);
   }
   return reverseArray(digits);
 }
