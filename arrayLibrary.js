@@ -133,11 +133,13 @@ const countNumbersBelowValue = function(numbers, value) {
 }
 
 const findIndexOfNumber = function(numbers, value) {
+  let index = -1;
   for (let index in numbers) {
     if (numbers[index] == value) {
       return index;
     }
   }
+  return index;
 }
 
 const swapElements = function(firstIndex, secondIndex, numbers) {
@@ -192,12 +194,10 @@ const isDescending = function(numbers) {
 
 const extractDigits = function(number) {
   let digits = [];
-  let index = 0;
   let numberToExtract = number;
-  while (numberToExtract > 0) {
-    digits[index] = numberToExtract % 10;
-    numberToExtract = Math.floor(numberToExtract / 10);
-    index++;
+  while (numberToExtract != 0) {
+   digits.push(numberToExtract % 10);
+   numberToExtract = Math.floor(numberToExtract / 10);
   }
   return reverseArray(digits);
 }
