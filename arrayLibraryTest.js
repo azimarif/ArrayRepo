@@ -25,8 +25,7 @@ testFilterOddNumbers([-1], [-1]);
 testFilterOddNumbers([1,2], [1]);
 testFilterOddNumbers([1, 2, 3, 4, 5, 6, 7, 8], [1, 3, 5, 7]);
 
-/*
-  //Selecting even numbers
+//Selecting even numbers
 testCase1 = { input : [0], expectedOutput : [0], actualOutput : filterEvenNumbers([0]), message : 'Testing filterEvenNumbers' }
 testCase2 = { input : [1], expectedOutput : [], actualOutput : filterEvenNumbers([1]), message : 'Testing filterEvenNumbers' }
 testCase3 = { input : [2], expectedOutput : [2], actualOutput : filterEvenNumbers([2]), message : 'Testing filterEvenNumbers' }
@@ -350,7 +349,3 @@ assertDeepEqual(testCase2);
 assertDeepEqual(testCase3);
 assertDeepEqual(testCase4);
 assertDeepEqual(testCase5);
-
-
-
-*/
