@@ -13,15 +13,17 @@ const {isEven, complimentary ,filterOddNumbers, filterEvenNumbers,
   partitionArray } =  require('./arrayLibrary.js');
 
 const testFilterOddNumbers = function(input, expectedOutput){
-  assertDeepEqual({input , expectedOutput, actualOutput: filterOddNumbers(input), message :"filterOddNumbers" });
+  let actualOutput = filterOddNumbers(input);
+  assertDeepEqual({input , expectedOutput, actualOutput: actualOutput, message: 'filterOddNumbers'});
 }
 
 //Selecting odd numbers
-testFilterOddNumbers( [0], [], [0]);
-testFilterOddNumbers( [1], [1], [1]);
-testFilterOddNumbers( [2],  [],  [2]); 
-testFilterOddNumbers( [1,2], [1], [1,2]);
-testFilterOddNumbers( [1, 2, 3, 4, 5, 6, 7, 8],  [1,3,5,7], [1, 2, 3, 4, 5, 6, 7, 8]);
+testFilterOddNumbers([0], []);
+testFilterOddNumbers([1], [1]);
+testFilterOddNumbers([-1], [-1]); 
+testFilterOddNumbers([1,2], [1]);
+testFilterOddNumbers([1, 2, 3, 4, 5, 6, 7, 8], [1, 3, 5, 7]);
+
 /*
   //Selecting even numbers
 testCase1 = { input : [0], expectedOutput : [0], actualOutput : filterEvenNumbers([0]), message : 'Testing filterEvenNumbers' }
