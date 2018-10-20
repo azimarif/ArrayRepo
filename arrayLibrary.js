@@ -15,11 +15,7 @@ const filterOddNumbers = function(numbers) {
 }
 
 const filterEvenNumbers = function(numbers) {
-  let evenNumbers = [[], []];
-  for (let number of numbers) {
-    evenNumbers[number % 2].push(number);
-  }
-  return evenNumbers[0];
+  return numbers.filter(isEven);
 }
 
 const calculateSum = function(numbers) {
