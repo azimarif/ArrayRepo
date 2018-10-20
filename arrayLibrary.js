@@ -27,14 +27,13 @@ const calculateSum = function(numbers) {
 }
 
 const reverseArray = function(numbers) {
-  let reversedArray = [];
-  numbers.reduce(function(array, number) {
+  return numbers.reduce(function(array, number) {
     array.unshift(number);
     return array;
-  }, reversedArray);
-  return reversedArray;
+  },[] );
 }
 
+// use filter - wihout javascript index given to filter function.
 const selectEverySecondNo = function(numbers) {
   let filteredArray = [];
   for (let index = 0; index < numbers.length; index = index + 2) {
