@@ -1,29 +1,36 @@
 const assert = require('assert');
 const {assertEqual, assertDeepEqual} = require('./testLibrary.js');
-const {isEven, complimentary ,filterOddNumbers, filterEvenNumbers, sumOfNumbersInList, calculateSum, reverseArray, selectEverySecondNo,
-reverseFibonacciSeries, maxNumberInAList, minNumberInAList, averageOfArray,
-mappingNamesLengthToArray, countOddNumbers, countEvenNumbers,
-countNumbersAboveValue,countNumbersBelowValue,findIndexOfNumber,
-swapElements,sortArrayInAscending,loopThroughArray,
-sortArrayInDescending, isAscending,isDescending, extractDigits,
-isElementExists,uniqueArrayElements,combineTwoArrays,arrayIntersection,
-uniqueElementsFromFirstArray, isArraySubSet,zipArrayElements,rotateArray,
-partitionArray } =  require('./arrayLibrary.js');
+
+const {isEven, complimentary ,filterOddNumbers, filterEvenNumbers, 
+  sumOfNumbersInList, calculateSum, reverseArray, selectEverySecondNo,
+  reverseFibonacciSeries, maxNumberInAList, minNumberInAList, averageOfArray,
+  mappingNamesLengthToArray, countOddNumbers, countEvenNumbers,
+  countNumbersAboveValue,countNumbersBelowValue,findIndexOfNumber,
+  swapElements,sortArrayInAscending,loopThroughArray,
+  sortArrayInDescending, isAscending,isDescending, extractDigits,
+  isElementExists,uniqueArrayElements,combineTwoArrays,arrayIntersection,
+  uniqueElementsFromFirstArray, isArraySubSet,zipArrayElements,rotateArray,
+  partitionArray } =  require('./arrayLibrary.js');
+
+const testCasesForFilterOddNumbers = function(input, expectedOutput, actualOutput){
+  let testCase =  {
+    input ,
+    expectedOutput,
+    actualOutput,
+    message :"filterOddNumbers"
+  };
+  assertDeepEqual(testCase);
+}
 
 //Selecting odd numbers
-let testCase1 = { input : [0], expectedOutput : [], actualOutput : filterOddNumbers([0]), message : 'Testing filterOddNumbers' }
-let testCase2 = { input : [1], expectedOutput : [1], actualOutput : filterOddNumbers([1]), message : 'Testing filterOddNumbers' }
-let testCase3 = { input : [2], expectedOutput : [], actualOutput : filterOddNumbers([2]), message : 'Testing filterOddNumbers' }
-let testCase4 = { input : [1,2], expectedOutput : [1], actualOutput : filterOddNumbers([1,2]), message : 'Testing filterOddNumbers' }
-let testCase5 = { input : [1, 2, 3, 4, 5, 6, 7, 8], expectedOutput : [1,3,5,7], actualOutput : filterOddNumbers([1, 2, 3, 4, 5, 6, 7, 8]), message : 'Testing filterOddNumbers' }
+testCasesForFilterOddNumbers( [0], [], filterOddNumbers([0]))
+testCasesForFilterOddNumbers( [1], [1], filterOddNumbers([1]));
+testCasesForFilterOddNumbers( [2],  [],  filterOddNumbers([2])); 
+testCasesForFilterOddNumbers( [1,2], [1], filterOddNumbers([1,2]));
+testCasesForFilterOddNumbers( [1, 2, 3, 4, 5, 6, 7, 8],  [1,3,5,7], filterOddNumbers([1, 2, 3, 4, 5, 6, 7, 8]));
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
-
-//Selecting even numbers
+/*
+  //Selecting even numbers
 testCase1 = { input : [0], expectedOutput : [0], actualOutput : filterEvenNumbers([0]), message : 'Testing filterEvenNumbers' }
 testCase2 = { input : [1], expectedOutput : [], actualOutput : filterEvenNumbers([1]), message : 'Testing filterEvenNumbers' }
 testCase3 = { input : [2], expectedOutput : [2], actualOutput : filterEvenNumbers([2]), message : 'Testing filterEvenNumbers' }
@@ -347,3 +354,7 @@ assertDeepEqual(testCase2);
 assertDeepEqual(testCase3);
 assertDeepEqual(testCase4);
 assertDeepEqual(testCase5);
+
+
+
+*/
