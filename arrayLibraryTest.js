@@ -13,13 +13,7 @@ const {isEven, complimentary ,filterOddNumbers, filterEvenNumbers,
   partitionArray } =  require('./arrayLibrary.js');
 
 const testCasesForFilterOddNumbers = function(input, expectedOutput, actualOutput){
-  let testCase =  {
-    input ,
-    expectedOutput,
-    actualOutput,
-    message :"filterOddNumbers"
-  };
-  assertDeepEqual(testCase);
+  assertDeepEqual({input , expectedOutput, actualOutput, message :"filterOddNumbers" });
 }
 
 //Selecting odd numbers
