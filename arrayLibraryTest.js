@@ -1,351 +1,353 @@
 const assert = require('assert');
-const {assertEqual, assertDeepEqual} = require('./testLibrary.js');
+const { assertEqual, assertDeepEqual } = require('./testLibrary.js');
 
-const {isEven, complimentary ,filterOddNumbers, filterEvenNumbers, 
-  sumOfNumbersInList, calculateSum, reverseArray, selectEverySecondNo,
+const {
+  isEven, complimentary, filterOddNumbers, filterEvenNumbers,
+  sumOfNumbersInList, calculateSum, reverseArray, selectEverySecondNumber,
   reverseFibonacciSeries, maxNumberInAList, minNumberInAList, averageOfArray,
   mappingNamesLengthToArray, countOddNumbers, countEvenNumbers,
-  countNumbersAboveValue,countNumbersBelowValue,findIndexOfNumber,
-  swapElements,sortArrayInAscending,loopThroughArray,
-  sortArrayInDescending, isAscending,isDescending, extractDigits,
-  isElementExists,uniqueArrayElements,combineTwoArrays,arrayIntersection,
-  uniqueElementsFromFirstArray, isArraySubSet,zipArrayElements,rotateArray,
-  partitionArray } =  require('./arrayLibrary.js');
+  countNumbersAboveValue, countNumbersBelowValue, findIndexOfNumber,
+  swapElements, sortArrayInAscending, loopThroughArray,
+  sortArrayInDescending, isAscending, isDescending, extractDigits,
+  isElementExists, uniqueArrayElements, combineTwoArrays, arrayIntersection,
+  uniqueElementsFromFirstArray, isArraySubSet, zipArrayElements, rotateArray,
+  partitionArray
+} = require('./arrayLibrary.js');
 
 //Selecting odd numbers
-const testFilterOddNumbers = function(input, expectedOutput){
+const testFilterOddNumbers = function(input, expectedOutput) {
   let actualOutput = filterOddNumbers(input);
   let message = 'filterOddNumbers';
-  assertDeepEqual({input , expectedOutput, actualOutput, message});
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
 }
 
 testFilterOddNumbers([0], []);
 testFilterOddNumbers([1], [1]);
-testFilterOddNumbers([-1], [-1]); 
-testFilterOddNumbers([1,2], [1]);
+testFilterOddNumbers([-1], [-1]);
+testFilterOddNumbers([1, 2], [1]);
 testFilterOddNumbers([1, 2, 3, 4, 5, 6, 7, 8], [1, 3, 5, 7]);
 
 //Selecting even numbers
-const testFilterEvenNumbers = function(input, expectedOutput){
+const testFilterEvenNumbers = function(input, expectedOutput) {
   let actualOutput = filterEvenNumbers(input);
   let message = 'filterEvenNumbers';
-  assertDeepEqual({input , expectedOutput, actualOutput, message});
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
 }
 
 testFilterEvenNumbers([0], [0]);
 testFilterEvenNumbers([1], []);
 testFilterEvenNumbers([2], [2]);
-testFilterEvenNumbers([1,2], [2]);
-testFilterEvenNumbers([1,2,3,4,5,6,7,8], [2,4,6,8]);
+testFilterEvenNumbers([1, 2], [2]);
+testFilterEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8], [2, 4, 6, 8]);
 
 //Sum of a list of numbers
-testCase1 = { input : [], expectedOutput : 0, actualOutput : calculateSum([]), message : 'Testing calculateSum' }
-testCase2 = { input : [0], expectedOutput : 0, actualOutput : calculateSum([0]), message : 'Testing calculateSum' }
-testCase3 = { input : [1], expectedOutput : 1, actualOutput : calculateSum([1]), message : 'Testing calculateSum' }
-testCase4 = { input : [1,-5], expectedOutput : -4, actualOutput : calculateSum([1,-5]), message : 'Testing calculateSum' }
-testCase5 = { input : [30,35,20,15], expectedOutput : 100, actualOutput : calculateSum([30,35,20,15]), message : 'Testing calculateSum' }
+const testCalculateSum = function(input, expectedOutput) {
+  let actualOutput = calculateSum(input);
+  let message = 'calculateSum';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testCalculateSum([], 0);
+testCalculateSum([0], 0);
+testCalculateSum([1], 1);
+testCalculateSum([1, -5], -4);
+testCalculateSum([30, 35, 20, 15], 100);
 
 //Printing array in reverse order
-testCase1 = { input : [], expectedOutput : [], actualOutput : reverseArray([]), message : 'Testing reverseArray' }
-testCase2 = { input : [0], expectedOutput : [0], actualOutput : reverseArray([0]), message : 'Testing reverseArray' }
-testCase3 = { input : [0,1], expectedOutput : [1,0], actualOutput : reverseArray([0,1]), message : 'Testing reverseArray' }
-testCase4 = { input : [1,-5], expectedOutput : [-5,1], actualOutput : reverseArray([1,-5]), message : 'Testing reverseArray' }
-testCase5 = { input : [30,35,20,15], expectedOutput : [15,20,35,30], actualOutput : reverseArray([30,35,20,15]), message : 'Testing reverseArray' }
+const testReverseArray = function(input, expectedOutput) {
+  let actualOutput = reverseArray(input);
+  let message = 'reverseArray';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testReverseArray([], []);
+testReverseArray([0], [0]);
+testReverseArray([0, 1], [1, 0]);
+testReverseArray([1, -5], [-5, 1]);
+testReverseArray([30, 35, 20, 15], [15, 20, 35, 30]);
 
 //Selecting every second element
-testCase1 = { input : [], expectedOutput : [], actualOutput : selectEverySecondNo([]), message : 'Testing selectEverySecondNo' }
-testCase2 = { input : [0], expectedOutput : [0], actualOutput : selectEverySecondNo([0]), message : 'Testing selectEverySecondNo' }
-testCase3 = { input : [0,1], expectedOutput : [0], actualOutput : selectEverySecondNo([0,1]), message : 'Testing selectEverySecondNo' }
-testCase4 = { input : [1,-5,-2], expectedOutput : [1,-2], actualOutput : selectEverySecondNo([1,-5,-2]), message : 'Testing selectEverySecondNo' }
-testCase5 = { input : [30,35,20,15], expectedOutput : [30,20], actualOutput : selectEverySecondNo([30,35,20,15]), message : 'Testing selectEverySecondNo' }
+const testselectEverySecondNumber = function(input, expectedOutput) {
+  let actualOutput = selectEverySecondNumber(input);
+  let message = 'selectEverySecondNumber';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testselectEverySecondNumber([], []);
+testselectEverySecondNumber([0], [0]);
+testselectEverySecondNumber([0, 1], [0]);
+testselectEverySecondNumber([1, -5, -2], [1, -2]);
+testselectEverySecondNumber([30, 35, 20, 15], [30, 20]);
 
 //Reverse Fibonacci Series
-testCase1 = { input : 0, expectedOutput : [0], actualOutput : reverseFibonacciSeries(0), message : 'Testing reverseFibonacciSeries' }
-testCase2 = { input : 1, expectedOutput : [0], actualOutput : reverseFibonacciSeries(1), message : 'Testing reverseFibonacciSeries' }
-testCase3 = { input : 2, expectedOutput : [1,0], actualOutput : reverseFibonacciSeries(2), message : 'Testing reverseFibonacciSeries' }
-testCase4 = { input : 5, expectedOutput : [3,2,1,1,0], actualOutput : reverseFibonacciSeries(5), message : 'Testing reverseFibonacciSeries' }
-testCase5 = { input : 7, expectedOutput : [8,5,3,2,1,1,0], actualOutput : reverseFibonacciSeries(7), message : 'Testing reverseFibonacciSeries' }
+const testReverseFibonacciSeries = function(input, expectedOutput) {
+  let actualOutput = reverseFibonacciSeries(input);
+  let message = 'reverseFibonacciSeries';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testReverseFibonacciSeries(0, [0]);
+testReverseFibonacciSeries(1, [0]);
+testReverseFibonacciSeries(2, [1, 0]);
+testReverseFibonacciSeries(5, [3, 2, 1, 1, 0]);
+testReverseFibonacciSeries(7, [8, 5, 3, 2, 1, 1, 0]);
 
 //Greatest number in a list
-testCase1 = { input : [-3,-5], expectedOutput : -3, actualOutput : maxNumberInAList([-3,-5]), message : 'Testing maxNumberInAList' }
-testCase2 = { input : [0], expectedOutput : 0, actualOutput : maxNumberInAList([0]), message : 'Testing maxNumberInAList' }
-testCase3 = { input : [0,1], expectedOutput : 1, actualOutput : maxNumberInAList([0,1]), message : 'Testing maxNumberInAList' }
-testCase4 = { input : [1,-5,-2], expectedOutput : 1, actualOutput : maxNumberInAList([1,-5,-2]), message : 'Testing maxNumberInAList' }
-testCase5 = { input : [30,35,20,15], expectedOutput : 35, actualOutput : maxNumberInAList([30,35,20,15]), message : 'Testing maxNumberInAList' }
+const testMaxNumberInAList = function(input, expectedOutput) {
+  let actualOutput = maxNumberInAList(input);
+  let message = 'maxNumberInAList';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testMaxNumberInAList([-3, -5], -3);
+testMaxNumberInAList([0], 0);
+testMaxNumberInAList([0, 1], 1);
+testMaxNumberInAList([1, -5, -2], 1);
+testMaxNumberInAList([30, 35, 20, 15], 35);
 
 //Lowest number in a list
-testCase1 = { input : [-3,-5], expectedOutput : -5, actualOutput : minNumberInAList([-3,-5]), message : 'Testing minNumberInAList' }
-testCase2 = { input : [0], expectedOutput : 0, actualOutput : minNumberInAList([0]), message : 'Testing minNumberInAList' }
-testCase3 = { input : [0,1], expectedOutput : 0, actualOutput : minNumberInAList([0,1]), message : 'Testing minNumberInAList' }
-testCase4 = { input : [1,-5,-2], expectedOutput : -5, actualOutput : minNumberInAList([1,-5,-2]), message : 'Testing minNumberInAList' }
-testCase5 = { input : [30,35,20,15], expectedOutput : 15, actualOutput : minNumberInAList([30,35,20,15]), message : 'Testing minNumberInAList' }
+const testMinNumberInAList = function(input, expectedOutput) {
+  let actualOutput = minNumberInAList(input);
+  let message = 'minNumberInAList';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testMinNumberInAList([-3, -5], -5);
+testMinNumberInAList([0], 0);
+testMinNumberInAList([0, 1], 0);
+testMinNumberInAList([1, -5, -2], -5);
+testMinNumberInAList([30, 35, 20, 15], 15);
 
 //Average of a list
-testCase1 = { input : [-3,-5], expectedOutput : -4.00, actualOutput : averageOfArray([-3,-5]), message : 'Testing averageOfArray' }
-testCase2 = { input : [0], expectedOutput : 0.00, actualOutput : averageOfArray([0]), message : 'Testing averageOfArray' }
-testCase3 = { input : [0,1], expectedOutput : 0.50, actualOutput : averageOfArray([0,1]), message : 'Testing averageOfArray' }
-testCase4 = { input : [1,-5,-2], expectedOutput : -2.00, actualOutput : averageOfArray([1,-5,-2]), message : 'Testing averageOfArray' }
-testCase5 = { input : [30,35,20,15], expectedOutput : 25.00, actualOutput : averageOfArray([30,35,20,15]), message : 'Testing averageOfArray' }
+const testAverageOfArray = function(input, expectedOutput) {
+  let actualOutput = averageOfArray(input);
+  let message = 'averageOfArray';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testAverageOfArray([-3, -5], -4.00);
+testAverageOfArray([0], 0.00);
+testAverageOfArray([0, 1], 0.50);
+testAverageOfArray([1, -5, -2], -2.00);
+testAverageOfArray([30, 35, 20, 15], 25.00);
 
 //Mapping lengths
-testCase1 = { input : ['Arif','Azim','Ansari'], expectedOutput : [4,4,6], actualOutput : mappingNamesLengthToArray(['Arif','Azim','Ansari']), message : 'Testing mappingNamesLengthToArray' }
-testCase2 = { input : ['2743'], expectedOutput :[4], actualOutput : mappingNamesLengthToArray(['2743']), message : 'Testing mappingNamesLengthToArray' }
-testCase3 = { input : [], expectedOutput : [], actualOutput : mappingNamesLengthToArray([]), message : 'Testing mappingNamesLengthToArray' }
-testCase4 = { input : ['Infinity', 'War'], expectedOutput : [8,3], actualOutput : mappingNamesLengthToArray(['Infinity', 'War']), message : 'Testing mappingNamesLengthToArray' }
-testCase5 = { input : ['0', '0'], expectedOutput : [1,1], actualOutput : mappingNamesLengthToArray(['0', '0']), message : 'Testing mappingNamesLengthToArray' }
+const testMappingNamesLengthToArray = function(input, expectedOutput) {
+  let actualOutput = mappingNamesLengthToArray(input);
+  let message = 'mappingNamesLengthToArray';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testMappingNamesLengthToArray(['Arif', 'Azim', 'Ansari'], [4, 4, 6]);
+testMappingNamesLengthToArray(['2743'], [4]);
+testMappingNamesLengthToArray([], []);
+testMappingNamesLengthToArray(['Infinity', 'War'], [8, 3]);
+testMappingNamesLengthToArray(['0', '0'], [1, 1]);
 
 //Counting odd numbers
-testCase1 = { input : [], expectedOutput : 0, actualOutput : countOddNumbers([]), message : 'Testing countOddNumbers' }
-testCase2 = { input : [0], expectedOutput : 0, actualOutput : countOddNumbers([0]), message : 'Testing countOddNumbers' }
-testCase3 = { input : [0,1], expectedOutput : 1, actualOutput : countOddNumbers([0,1]), message : 'Testing countOddNumbers' }
-testCase4 = { input : [1,-5,-2], expectedOutput : 2, actualOutput : countOddNumbers([1,-5,-2]), message : 'Testing countOddNumbers' }
-testCase5 = { input : [30,35,20,15], expectedOutput : 2, actualOutput : countOddNumbers([30,35,20,15]), message : 'Testing countOddNumbers' }
+const testCountOddNumbers = function(input, expectedOutput) {
+  let actualOutput = countOddNumbers(input);
+  let message = 'countOddNumbers';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testCountOddNumbers([], 0);
+testCountOddNumbers([0], 0);
+testCountOddNumbers([0, 1], 1);
+testCountOddNumbers([1, -5, -2], 2);
+testCountOddNumbers([30, 35, 20, 15], 2);
 
 //Counting even numbers
-testCase1 = { input : [], expectedOutput : 0, actualOutput : countEvenNumbers([]), message : 'Testing countEvenNumbers' }
-testCase2 = { input : [0], expectedOutput : 1, actualOutput : countEvenNumbers([0]), message : 'Testing countEvenNumbers' }
-testCase3 = { input : [0,1], expectedOutput : 1, actualOutput : countEvenNumbers([0,1]), message : 'Testing countEvenNumbers' }
-testCase4 = { input : [1,-5,-2], expectedOutput : 1, actualOutput : countEvenNumbers([1,-5,-2]), message : 'Testing countEvenNumbers' }
-testCase5 = { input : [30,35,20,15], expectedOutput : 2, actualOutput : countEvenNumbers([30,35,20,15]), message : 'Testing countEvenNumbers' }
+const testCountEvenNumbers = function(input, expectedOutput) {
+  let actualOutput = countEvenNumbers(input);
+  let message = 'countEvenNumbers';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testCountEvenNumbers([], 0);
+testCountEvenNumbers([0], 1);
+testCountEvenNumbers([0, 1], 1);
+testCountEvenNumbers([1, -5, -2], 1);
+testCountEvenNumbers([30, 35, 20, 15], 2);
 
 //Counting numbers above threshold value
-testCase1 = { input : "[],5", expectedOutput : 0, actualOutput : countNumbersAboveValue([],5), message : 'Testing countNumbersAboveValue' }
-testCase2 = { input : "[0],4", expectedOutput : 0, actualOutput : countNumbersAboveValue([0],4), message : 'Testing countNumbersAboveValue' }
-testCase3 = { input : "[0,2],1", expectedOutput : 1, actualOutput : countNumbersAboveValue([0,2],1), message : 'Testing countNumbersAboveValue' }
-testCase4 = { input : "[1,-5,-2],0", expectedOutput : 1, actualOutput : countNumbersAboveValue([1,-5,-2],0), message : 'Testing countNumbersAboveValue' }
-testCase5 = { input : "[30,35,20,15],22", expectedOutput : 2, actualOutput : countNumbersAboveValue([30,35,20,15],22), message : 'Testing countNumbersAboveValue' }
+const testCountNumbersAboveValue = function(input, value, expectedOutput) {
+  let actualOutput = countNumbersAboveValue(input, value);
+  let message = 'countNumbersAboveValue';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testCountNumbersAboveValue([], 5, 0);
+testCountNumbersAboveValue([0], 4, 0);
+testCountNumbersAboveValue([0, 2], 1, 1);
+testCountNumbersAboveValue([1, -5, -2], 0, 1);
+testCountNumbersAboveValue([30, 35, 20, 15], 22, 2);
 
 //Counting numbers below threshold value
-testCase1 = { input : "[],5", expectedOutput : 0, actualOutput : countNumbersBelowValue([],5), message : 'Testing countNumbersBelowValue' }
-testCase2 = { input : "[0],4", expectedOutput : 1, actualOutput : countNumbersBelowValue([0],4), message : 'Testing countNumbersBelowValue' }
-testCase3 = { input : "[0,2],1", expectedOutput : 1, actualOutput : countNumbersBelowValue([0,2],1), message : 'Testing countNumbersBelowValue' }
-testCase4 = { input : "[1,-5,-2],0", expectedOutput : 2, actualOutput : countNumbersBelowValue([1,-5,-2],0), message : 'Testing countNumbersBelowValue' }
-testCase5 = { input : "[30,35,20,15],22", expectedOutput : 2, actualOutput : countNumbersBelowValue([30,35,20,15],22), message : 'Testing countNumbersBelowValue' }
+const testCountNumbersBelowValue = function(input, value, expectedOutput) {
+  let actualOutput = countNumbersBelowValue(input, value);
+  let message = 'countNumbersBelowValue';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testCountNumbersBelowValue([], 5, 0);
+testCountNumbersBelowValue([0], 4, 1);
+testCountNumbersBelowValue([0, 2], 1, 1);
+testCountNumbersBelowValue([1, -5, -2], 0, 2);
+testCountNumbersBelowValue([30, 35, 20, 15], 22, 2);
 
 //Find the index of a Number
-testCase1 = { input : "[],5", expectedOutput : -1, actualOutput : findIndexOfNumber([],5), message : 'Testing findIndexOfNumber' }
-testCase2 = { input : "[0],4", expectedOutput : -1, actualOutput : findIndexOfNumber([0],4), message : 'Testing findIndexOfNumber' }
-testCase3 = { input : "[0,1,2],1", expectedOutput : 1, actualOutput : findIndexOfNumber([0,1,2],1), message : 'Testing findIndexOfNumber' }
-testCase4 = { input : "[1,-5,-2,0],0", expectedOutput : 3, actualOutput : findIndexOfNumber([1,-5,-2,0],0), message : 'Testing findIndexOfNumber' }
-testCase5 = { input : "[30,35,22,20,15],22", expectedOutput : 2, actualOutput : findIndexOfNumber([30,35,22,20,15],22), message : 'Testing findIndexOfNumber' }
+const testFindIndexOfNumber = function(input, value, expectedOutput) {
+  let actualOutput = findIndexOfNumber(input, value);
+  let message = 'findIndexOfNumber';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testFindIndexOfNumber([], 5, -1);
+testFindIndexOfNumber([0], 4, -1);
+testFindIndexOfNumber([0, 1, 2], 1, 1);
+testFindIndexOfNumber([1, -5, -2, 0], 0, 3);
+testFindIndexOfNumber([30, 35, 22, 20, 15], 22, 2);
 
 //Ascending Order
-testCase1 = { input : "[]", expectedOutput : true, actualOutput : isAscending([]), message : 'Testing isAscending' }
-testCase2 = { input : "[0]", expectedOutput : true, actualOutput : isAscending([0]), message : 'Testing isAscending' }
-testCase3 = { input : "[0,1,2]", expectedOutput : true, actualOutput : isAscending([0,1,2]), message : 'Testing isAscending' }
-testCase4 = { input : "[-5,-2,0,1,-4]", expectedOutput : false, actualOutput : isAscending([-5,-2,0,1,-4]), message : 'Testing isAscending' }
-testCase5 = { input : "[30,35,22,20,15]", expectedOutput : false, actualOutput : isAscending([30,35,22,20,15]), message : 'Testing isAscending' }
+const testIsAscending = function(input, expectedOutput) {
+  let actualOutput = isAscending(input);
+  let message = 'isAscending';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testIsAscending([], true);
+testIsAscending([0], true);
+testIsAscending([0, 1, 2], true);
+testIsAscending([-5, -2, 0, 1, -4], false);
+testIsAscending([30, 35, 22, 20, 15], false);
 
 //Descending Order
-testCase1 = { input : "[]", expectedOutput : true, actualOutput : isDescending([]), message : 'Testing isDescending' }
-testCase2 = { input : "[0]", expectedOutput : true, actualOutput : isDescending([0]), message : 'Testing isDescending' }
-testCase3 = { input : "[0,1,2]", expectedOutput : false, actualOutput : isDescending([0,1,2]), message : 'Testing isDescending' }
-testCase4 = { input : "[-5,-2,0,1,-4]", expectedOutput : false, actualOutput : isDescending([-5,-2,0,1,-4]), message : 'Testing isDescending' }
-testCase5 = { input : "[30,35,22,20,15]", expectedOutput : false, actualOutput : isDescending([30,35,22,20,15]), message : 'Testing isDescending' }
+const testIsDescending = function(input, expectedOutput) {
+  let actualOutput = isDescending(input);
+  let message = 'isDescending';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testIsDescending([], true);
+testIsDescending([0], true);
+testIsDescending([0, 1, 2], false);
+testIsDescending([-5, -2, 0, 1, -4], false);
+testIsDescending([30, 35, 22, 20, 15], false);
 
-//Extract Digits
-// testCase1 = { input : '', expectedOutput : [], actualOutput : extractDigits(), message : 'Testing extractDigits' }
-testCase2 = { input : 2744, expectedOutput : [2,7,4,4], actualOutput : extractDigits(2744), message : 'Testing extractDigits' }
-testCase3 = { input : 10, expectedOutput : [1,0], actualOutput : extractDigits(10), message : 'Testing extractDigits' }
-//testCase4 = { input : -520, expectedOutput : [-5,2,0], actualOutput : extractDigits(-520), message : 'Testing extractDigits' }
-testCase5 = { input : 4, expectedOutput : [4], actualOutput : extractDigits(4), message : 'Testing extractDigits' }
+//Extract Digit
+const testExtractDigits = function(input, expectedOutput) {
+  let actualOutput = extractDigits(input);
+  let message = 'extractDigits';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-//assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-//assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testExtractDigits('', []);
+testExtractDigits(2744, [2, 7, 4, 4]);
+testExtractDigits(10, [1, 0]);
+testExtractDigits(520, [5, 2, 0]);
+testExtractDigits(4, [4]);
 
 //Unique Array Elements
-testCase1 = { input : "[]", expectedOutput : [], actualOutput : uniqueArrayElements([]), message : 'Testing uniqueArrayElements' }
-testCase2 = { input : "[0]", expectedOutput : [0], actualOutput : uniqueArrayElements([0]), message : 'Testing uniqueArrayElements' }
-testCase3 = { input : "[0,1]", expectedOutput : [0,1], actualOutput : uniqueArrayElements([0,1]), message : 'Testing uniqueArrayElements' }
-testCase4 = { input : "[-5,-2,0,-5,1,-4]", expectedOutput : [-5,-2,0,1,-4], actualOutput : uniqueArrayElements([-5,-2,0,-5,1,-4]), message : 'Testing uniqueArrayElements' }
-testCase5 = { input : "[30,35,22,20,15,30]", expectedOutput : [30,35,22,20,15], actualOutput : uniqueArrayElements([30,35,22,20,15,30]), message : 'Testing uniqueArrayElements' }
+const testUniqueArrayElements = function(input, expectedOutput) {
+  let actualOutput = uniqueArrayElements(input);
+  let message = 'uniqueArrayElements';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testUniqueArrayElements([], []);
+testUniqueArrayElements([0], [0]);
+testUniqueArrayElements([0, 1], [0, 1]);
+testUniqueArrayElements([-5, -2, 0, -5, 1, -4], [-5, -2, 0, 1, -4]);
+testUniqueArrayElements([30, 35, 22, 20, 15, 30], [30, 35, 22, 20, 15], );
 
 //Union of Two Arrays
-testCase1 = { input : "[],[]", expectedOutput : [], actualOutput : combineTwoArrays([],[]), message : 'Testing combineTwoArrays' }
-testCase2 = { input : "[0],[0]", expectedOutput : [0], actualOutput : combineTwoArrays([0],[0]), message : 'Testing combineTwoArrays' }
-testCase3 = { input : "[0,1],[0,1]", expectedOutput : [0,1], actualOutput : combineTwoArrays([0,1],[0,1]), message : 'Testing combineTwoArrays' }
-testCase4 = { input : "[-5,-2,0,],[-5,1,-4]", expectedOutput : [-5,-2,0,1,-4], actualOutput : combineTwoArrays([-5,-2,0], [-5,1,-4]), message : 'Testing combineTwoArrays' }
-testCase5 = { input : "[30,35,22],[20,15,30]", expectedOutput : [30,35,22,20,15], actualOutput : combineTwoArrays([30,35,22], [20,15,30]), message : 'Testing combineTwoArrays' }
+const testCombineTwoArrays = function(input, value, expectedOutput) {
+  let actualOutput = combineTwoArrays(input, value);
+  let message = 'combineTwoArrays';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testCombineTwoArrays([], [], []);
+testCombineTwoArrays([0], [0], [0]);
+testCombineTwoArrays([0, 1], [0, 1], [0, 1]);
+testCombineTwoArrays([-5, -2, 0, ], [-5, 1, -4], [-5, -2, 0, 1, -4]);
+testCombineTwoArrays([30, 35, 22], [20, 15, 30], [30, 35, 22, 20, 15], );
 
 //Intersection of two Arrays
-testCase1 = { input : "[],[]", expectedOutput : [], actualOutput : arrayIntersection([],[]), message : 'Testing arrayIntersection' }
-testCase2 = { input : "[0],[0]", expectedOutput : [0], actualOutput : arrayIntersection([0],[0]), message : 'Testing arrayIntersection' }
-testCase3 = { input : "[0,1],[0,1]", expectedOutput : [0,1], actualOutput : arrayIntersection([0,1],[0,1]), message : 'Testing arrayIntersection' }
-testCase4 = { input : "[-5,-2,0,],[-5,1,-4]", expectedOutput : [-5], actualOutput : arrayIntersection([-5,-2,0], [-5,1,-4]), message : 'Testing arrayIntersection' }
-testCase5 = { input : "[30,35,22],[20,15,30,35]", expectedOutput : [30,35], actualOutput : arrayIntersection([30,35,22], [20,15,30,35]), message : 'Testing arrayIntersection' }
+const testArrayIntersection = function(input, value, expectedOutput) {
+  let actualOutput = arrayIntersection(input, value);
+  let message = 'arrayIntersection';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testArrayIntersection([], [], []);
+testArrayIntersection([0], [0], [0]);
+testArrayIntersection([0, 1], [0, 1], [0, 1]);
+testArrayIntersection([-5, -2, 0, ], [-5, 1, -4], [-5]);
+testArrayIntersection([30, 35, 22], [20, 15, 30, 35], [30, 35]);
 
 //Unique Element from first Array
-testCase1 = { input : "[],[]", expectedOutput : [], actualOutput : uniqueElementsFromFirstArray([],[]), message : 'Testing uniqueElementsFromFirstArray' }
-testCase2 = { input : "[0],[0]", expectedOutput : [], actualOutput : uniqueElementsFromFirstArray([0],[0]), message : 'Testing uniqueElementsFromFirstArray' }
-testCase3 = { input : "[0,1],[0,1]", expectedOutput : [], actualOutput : uniqueElementsFromFirstArray([0,1],[0,1]), message : 'Testing uniqueElementsFromFirstArray' }
-testCase4 = { input : "[-5,-2,0,],[-5,1,-4]", expectedOutput : [-2,0], actualOutput : uniqueElementsFromFirstArray([-5,-2,0], [-5,1,-4]), message : 'Testing uniqueElementsFromFirstArray' }
-testCase5 = { input : "[30,35,22],[20,15,30,35]", expectedOutput : [22], actualOutput : uniqueElementsFromFirstArray([30,35,22], [20,15,30,35]), message : 'Testing uniqueElementsFromFirstArray' }
+const testUniqueElementsFromFirstArray = function(input, value, expectedOutput) {
+  let actualOutput = uniqueElementsFromFirstArray(input, value);
+  let message = 'uniqueElementsFromFirstArray';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testUniqueElementsFromFirstArray([], [], []);
+testUniqueElementsFromFirstArray([0], [0], []);
+testUniqueElementsFromFirstArray([0, 1], [0, 1], []);
+testUniqueElementsFromFirstArray([-5, -2, 0, ], [-5, 1, -4], [-2, 0]);
+testUniqueElementsFromFirstArray([30, 35, 22], [20, 15, 30, 35], [22]);
 
 //Check if second Array is subset of first Array
-testCase1 = { input : "[],[]", expectedOutput : true, actualOutput : isArraySubSet([],[]), message : 'Testing isArraySubSet' }
-testCase2 = { input : "[0],[0]", expectedOutput : true, actualOutput : isArraySubSet([0],[0]), message : 'Testing isArraySubSet' }
-testCase3 = { input : "[0,1],[0,1]", expectedOutput : true, actualOutput : isArraySubSet([0,1],[0,1]), message : 'Testing isArraySubSet' }
-testCase4 = { input : "[-5,-2,0,],[-5,1,-4]", expectedOutput : false, actualOutput : isArraySubSet([-5,-2,0], [-5,1,-4]), message : 'Testing isArraySubSet' }
-testCase5 = { input : "[30,35,22],[20,15,30,35]", expectedOutput : false, actualOutput : isArraySubSet([30,35,22], [20,15,30,35]), message : 'Testing isArraySubSet' }
+const testIsArraySubSet = function(input, value, expectedOutput) {
+  let actualOutput = isArraySubSet(input, value);
+  let message = 'isArraySubSet';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testIsArraySubSet([], [], true);
+testIsArraySubSet([0], [0], true);
+testIsArraySubSet([0, 1], [0, 1], true);
+testIsArraySubSet([-5, -2, 0, ], [-5, 1, -4], false);
+testIsArraySubSet([30, 35, 22], [20, 15, 30, 35], false);
 
 //Zip the array Elements
-testCase1 = { input : "[],[]", expectedOutput : [], actualOutput : zipArrayElements([],[]), message : 'Testing zipArrayElements' }
-testCase2 = { input : "[0],[0]", expectedOutput : [[0,0]], actualOutput : zipArrayElements([0],[0]), message : 'Testing zipArrayElements' }
-testCase3 = { input : "[0,1],[0,1]", expectedOutput : [[0,0],[1,1]], actualOutput : zipArrayElements([0,1],[0,1]), message : 'Testing zipArrayElements' }
-testCase4 = { input : "[-5,-2,0,],[-5,1,-4]", expectedOutput : [[-5,-5], [-2,1], [0,-4]], actualOutput : zipArrayElements([-5,-2,0], [-5,1,-4]), message : 'Testing zipArrayElements' }
-testCase5 = { input : "[30,35,22,35],[20,15,30]", expectedOutput : [[30,20],[35,15], [22,30], [35, undefined]], actualOutput : zipArrayElements([30,35,22,35], [20,15,30]), message : 'Testing zipArrayElements' }
+const testZipArrayElements = function(input, value, expectedOutput) {
+  let actualOutput = zipArrayElements(input, value);
+  let message = 'zipArrayElements';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testZipArrayElements([], [], []);
+testZipArrayElements([0], [0], [[0, 0]]);
+testZipArrayElements([0, 1], [0, 1], [[0, 0], [1, 1]]);
+testZipArrayElements([-5, -2, 0, ], [-5, 1, -4], [[-5, -5], [-2, 1], [0, -4]]);
+testZipArrayElements([30, 35, 22, 35], [20, 15, 30], [[30, 20], [35, 15], [22, 30], [35, undefined]], );
 
 //Rotate an Array by position
-testCase1 = { input : "[],5", expectedOutput : [undefined], actualOutput : rotateArray([],5), message : 'Testing rotateArray' }
-testCase2 = { input : "[0],4", expectedOutput : [0], actualOutput : rotateArray([0],4), message : 'Testing rotateArray' }
-testCase3 = { input : "[0,1,2],1", expectedOutput : [1,2,0], actualOutput : rotateArray([0,1,2],1), message : 'Testing rotateArray' }
-testCase4 = { input : "[1,-5,-2,0],0", expectedOutput : [1,-5,-2,0], actualOutput : rotateArray([1,-5,-2,0],0), message : 'Testing rotateArray' }
-testCase5 = { input : "[30,35,22,20,15],22", expectedOutput : [22,20,15,30,35], actualOutput : rotateArray([30,35,22,20,15],22), message : 'Testing rotateArray' }
+const testRotateArray = function(input, value, expectedOutput) {
+  let actualOutput = rotateArray(input, value);
+  let message = 'rotateArray';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testRotateArray([], 5, [undefined]);
+testRotateArray([0], 4, [0]);
+testRotateArray([0, 1, 2], 1, [1, 2, 0]);
+testRotateArray([1, -5, -2, 0], 0, [1, -5, -2, 0]);
+testRotateArray([30, 35, 22, 20, 15], 22, [22, 20, 15, 30, 35]);
 
 //Divide the array in two parts for the given number
-testCase1 = { input : "[],5", expectedOutput : [[],[]], actualOutput : partitionArray([],5), message : 'Testing partitionArray' }	
-testCase2 = { input : "[0],4", expectedOutput : [[0],[]], actualOutput : partitionArray([0],4), message : 'Testing partitionArray' }
-testCase3 = { input : "[0,1,2],1", expectedOutput : [[0,1],[2]], actualOutput : partitionArray([0,1,2],1), message : 'Testing partitionArray' }
-testCase4 = { input : "[1,-5,-2,0],0", expectedOutput : [[-5,-2, 0], [1]], actualOutput : partitionArray([1,-5,-2,0],0), message : 'Testing partitionArray' }
-testCase5 = { input : "[30,35,22,20,15],22", expectedOutput : [[22,20,15], [30,35]], actualOutput : partitionArray([30,35,22,20,15],22), message : 'Testing partitionArray' }
+const testPartitionArray = function(input, value, expectedOutput) {
+  let actualOutput = partitionArray(input, value);
+  let message = 'partitionArray';
+  assertDeepEqual({ input, expectedOutput, actualOutput, message });
+}
 
-assertDeepEqual(testCase1);
-assertDeepEqual(testCase2);
-assertDeepEqual(testCase3);
-assertDeepEqual(testCase4);
-assertDeepEqual(testCase5);
+testPartitionArray([], 5, [[], []]);
+testPartitionArray([0], 4, [[0], []]);
+testPartitionArray([0, 1, 2], 1, [[0, 1], [2]]);
+testPartitionArray([1, -5, -2, 0], 0, [[-5, -2, 0], [1]]);
+testPartitionArray([30, 35, 22, 20, 15], 22, [[22, 20, 15], [30, 35]]);
