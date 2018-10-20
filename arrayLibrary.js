@@ -18,12 +18,12 @@ const filterEvenNumbers = function(numbers) {
   return numbers.filter(isEven);
 }
 
+const sumOfNumbersInList = function(sum,value){
+  return sum + value;
+}
+
 const calculateSum = function(numbers) {
-  let sum = 0;
-  for (let number of numbers) {
-    sum = sum + number;
-  }
-  return sum;
+  return numbers.reduce(sumOfNumbersInList,0);
 }
 
 const reverseArray = function(numbers) {
