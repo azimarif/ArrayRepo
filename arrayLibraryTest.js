@@ -14,7 +14,8 @@ const {isEven, complimentary ,filterOddNumbers, filterEvenNumbers,
 
 const testFilterOddNumbers = function(input, expectedOutput){
   let actualOutput = filterOddNumbers(input);
-  assertDeepEqual({input , expectedOutput, actualOutput: actualOutput, message: 'filterOddNumbers'});
+  let message = 'filterOddNumbers';
+  assertDeepEqual({input , expectedOutput, actualOutput, message});
 }
 
 //Selecting odd numbers
