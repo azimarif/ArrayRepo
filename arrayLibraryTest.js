@@ -12,17 +12,16 @@ const {isEven, complimentary ,filterOddNumbers, filterEvenNumbers,
   uniqueElementsFromFirstArray, isArraySubSet,zipArrayElements,rotateArray,
   partitionArray } =  require('./arrayLibrary.js');
 
-const testFilterOddNumbers = function(input, expectedOutput, actualOutput){
-  assertDeepEqual({input , expectedOutput, actualOutput, message :"filterOddNumbers" });
+const testFilterOddNumbers = function(input, expectedOutput){
+  assertDeepEqual({input , expectedOutput, actualOutput: filterOddNumbers(input), message :"filterOddNumbers" });
 }
 
 //Selecting odd numbers
-testFilterOddNumbers( [0], [], filterOddNumbers([0]))
-testFilterOddNumbers( [1], [1], filterOddNumbers([1]));
-testFilterOddNumbers( [2],  [],  filterOddNumbers([2])); 
-testFilterOddNumbers( [1,2], [1], filterOddNumbers([1,2]));
-testFilterOddNumbers( [1, 2, 3, 4, 5, 6, 7, 8],  [1,3,5,7], filterOddNumbers([1, 2, 3, 4, 5, 6, 7, 8]));
-
+testFilterOddNumbers( [0], [], [0]);
+testFilterOddNumbers( [1], [1], [1]);
+testFilterOddNumbers( [2],  [],  [2]); 
+testFilterOddNumbers( [1,2], [1], [1,2]);
+testFilterOddNumbers( [1, 2, 3, 4, 5, 6, 7, 8],  [1,3,5,7], [1, 2, 3, 4, 5, 6, 7, 8]);
 /*
   //Selecting even numbers
 testCase1 = { input : [0], expectedOutput : [0], actualOutput : filterEvenNumbers([0]), message : 'Testing filterEvenNumbers' }
