@@ -1,9 +1,17 @@
-const filterOddNumbers = function(numbers) {
-  let oddNumbers = [[], []];
-  for (let number of numbers) {
-    oddNumbers[number % 2].push(number);
+const isEven = function(number){
+	return number % 2 == 0;
+}
+
+const complimentary = function(functionToCompliment){
+	return function(args){
+    return !functionToCompliment(args);
   }
-  return oddNumbers[1];
+}
+
+const isOdd = complimentary(isEven);
+
+const filterOddNumbers = function(numbers) {
+  return numbers.filter(isOdd);
 }
 
 const filterEvenNumbers = function(numbers) {
