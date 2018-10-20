@@ -12,21 +12,18 @@ const logTestCase = function(args) {
   message = message + justifier(args.input.toString(), 25) + '|';
   message = message + justifier(args.expectedOutput.toString(), 25) + '|';
   message = message + justifier(args.actualOutput.toString(), 25) + '|';
-  incrementSerialNo();
   return message;
 }
 
-const serialNumber = {
-  number: 1
+let generateSerialNumber = function() {
+  let serialNumber = 0;
+  return function(){
+    serialNumber ++;
+    return serialNumber;
+  }
 }
 
-let getSerialNumber = function() {
-  return serialNumber.number;
-}
-
-let incrementSerialNo = function() {
-  return serialNumber.number++;
-}
+let getSerialNumber = generateSerialNumber();
 
 const assertEqual = function(object) {
   console.log(logTestCase(object));
