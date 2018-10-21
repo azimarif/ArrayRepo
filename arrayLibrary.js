@@ -166,26 +166,23 @@ const unionOfTwoArrays = function(firstElements, secondElements) {
   return uniqueArrayElements(firstElements.concat(secondElements));
 }
 
-const arrayIntersection = function(firstElements, secondElements) {
-  firstElements = uniqueArrayElements(firstElements);
-  secondElements = uniqueArrayElements(secondElements);
-  let intersectedArray = [];
-  let count = 0;
-  for (let index = 0; index < firstElements.length; index++) {
-    if (isElementExists(secondElements, firstElements[index])) {
-      intersectedArray.push(firstElements[index]);
+const arrayIntersection = function(firstSet, secondSet) {
+  return firstSet.reduce(function(set, number) {
+    if (secondSet.includes(number)) {
+      set.push(number);
+      return set;
     }
-  }
-  return intersectedArray;
+    return set;
+  }, []);
 }
 
 const uniqueElementsFromFirstSet = function(firstSet, secondSet) {
-  return firstSet.reduce(function(array, number) {
+  return firstSet.reduce(function(set, number) {
     if (secondSet.includes(number)) {
-      return array;
+      return set;
     }
-    array.push(number);
-    return array;
+    set.push(number);
+    return set;
   }, []);
 }
 
