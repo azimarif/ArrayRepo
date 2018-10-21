@@ -2,13 +2,13 @@ const isEven = function(number) {
   return number % 2 == 0;
 }
 
-const complimentary = function(functionToCompliment) {
+const complementFunction = function(functionToCompliment) {
   return function(args) {
     return !functionToCompliment(args);
   }
 }
 
-const isOdd = complimentary(isEven);
+const isOdd = complementFunction(isEven);
 
 const filterOddNumbers = function(numbers) {
   return numbers.filter(isOdd);
@@ -33,8 +33,7 @@ const reverseArray = function(numbers) {
   },[] );
 }
 
-// use filter - wihout javascript index given to filter function.
-const selectEverySecondNo = function(numbers) {
+const selectEverySecondNumber = function(numbers) {
   let filteredArray = [];
   for (let index = 0; index < numbers.length; index = index + 2) {
     filteredArray.push(numbers[index]);
@@ -59,23 +58,21 @@ const reverseFibonacciSeries = function(numberOfTerms) {
 }
 
 const maxNumberInAList = function(numbers) {
-  let maxNumber = numbers[0];
-  for (let index = 1; index < numbers.length; index++) {
-    if (numbers[index] > maxNumber) {
-      maxNumber = numbers[index];
+  return numbers.reduce(function(maxNumber, number){
+    if(number > maxNumber){
+      return number;
     }
-  }
-  return maxNumber;
+    return maxNumber;
+  });
 }
 
 const minNumberInAList = function(numbers) {
-  let minNumber = numbers[0];
-  for (let index = 1; index < numbers.length; index++) {
-    if (minNumber > numbers[index]) {
-      minNumber = numbers[index];
+  return numbers.reduce(function(minNumber, number){
+    if(number > minNumber){
+      return minNumber;
     }
-  }
-  return minNumber;
+    return number;
+  });
 }
 
 const averageOfArray = function(numbers) {
@@ -84,92 +81,35 @@ const averageOfArray = function(numbers) {
   let average = sum / numberOfTerms;
   return average.toFixed(2);
 }
+
 const mappingNamesLengthToArray = function(names) {
-  let namesLength = [];
-  for (let index = 0; index < names.length; index++) {
-    namesLength[index] = names[index].length;
-  }
-  return namesLength;
+  return names.map(function(name){
+    return name.length;
+  });
 }
 
 const countOddNumbers = function(numbers) {
-  let count = 0;
-  for (let number of numbers) {
-    if (number % 2 != 0) {
-      count = count + 1;
-    }
-  }
-  return count;
+ return numbers.filter(isOdd).length;
 }
 
 const countEvenNumbers = function(numbers) {
-  let count = 0;
-  for (let number of numbers) {
-    if (number % 2 == 0) {
-      count = count + 1;
-    }
-  }
-  return count;
+  return numbers.filter(isEven).length;
 }
 
 const countNumbersAboveValue = function(numbers, value) {
-  let count = 0;
-  for (let number of numbers) {
-    if (number > value) {
-      count = count + 1;
-    }
-  }
-  return count;
+ return (numbers.filter(function(number){
+    return number > value;
+  })).length;
 }
 
 const countNumbersBelowValue = function(numbers, value) {
-  let count = 0;
-  for (let number of numbers) {
-    if (value > number) {
-      count = count + 1;
-    }
-  }
-  return count;
+ return (numbers.filter(function(number){
+    return number < value;
+  })).length;
 }
 
 const findIndexOfNumber = function(numbers, value) {
-  let index = -1;
-  for (let index in numbers) {
-    if (numbers[index] == value) {
-      return index;
-    }
-  }
-  return index;
-}
-
-const swapElements = function(firstIndex, secondIndex, numbers) {
-  if (numbers[firstIndex] > numbers[secondIndex]) {
-    let oldValue = numbers[firstIndex];
-    numbers[firstIndex] = numbers[secondIndex];
-    numbers[secondIndex] = oldValue;
-  }
-  return numbers;
-}
-
-const sortArrayInAscending = function(numbers) {
-  for (let index = 0; index < numbers.length - 1; index++) {
-    swapElements(index, index + 1, numbers);
-  }
-  return numbers;
-}
-
-const loopThroughArray = function(numbers, sortBy) {
-  for (let counter = 0; counter < numbers.length; counter++) {
-    sortBy(numbers);
-  }
-  return numbers;
-}
-
-const sortArrayInDescending = function(numbers) {
-  for (let index = 0; index < numbers.length - 1; index++) {
-    swapElements(index + 1, index, numbers);
-  }
-  return numbers;
+  return numbers.indexOf(value);
 }
 
 const isAscending = function(numbers) {
@@ -273,14 +213,13 @@ const zipArrayElements = function(firstElements, secondElements) {
 const rotateArray = function(elements, startingIndex) {
   let count = 0;
   for (let index = 0; index < startingIndex; index++) {
-    elements.push(elements.shift(index));
+    elements.push(elements.shift());
   }
   return elements;
 }
 
 const partitionArray = function(elements, partitionElement) {
   let partitionedArray = [[], []];
-  sortArrayInAscending(elements);
   for (let index = 0; index < elements.length; index++) {
     partitionedArray[1].push(elements[index]);
     if (partitionElement >= elements[index]) {
@@ -302,9 +241,6 @@ exports.uniqueArrayElements = uniqueArrayElements;
 exports.extractDigits = extractDigits;
 exports.isDescending = isDescending;
 exports.isAscending = isAscending;
-exports.loopThroughArray = loopThroughArray;
-exports.sortArrayInAscending = sortArrayInAscending;
-exports.sortArrayInDescending = sortArrayInDescending;
 exports.findIndexOfNumber = findIndexOfNumber;
 exports.countNumbersBelowValue = countNumbersBelowValue;
 exports.countNumbersAboveValue = countNumbersAboveValue;
@@ -315,7 +251,7 @@ exports.averageOfArray = averageOfArray;
 exports.minNumberInAList = minNumberInAList;
 exports.maxNumberInAList = maxNumberInAList;
 exports.reverseFibonacciSeries = reverseFibonacciSeries;
-exports.selectEverySecondNo = selectEverySecondNo;
+exports.selectEverySecondNumber = selectEverySecondNumber;
 exports.reverseArray = reverseArray;
 exports.calculateSum = calculateSum;
 exports.filterEvenNumbers = filterEvenNumbers;
