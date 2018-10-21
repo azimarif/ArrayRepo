@@ -205,15 +205,14 @@ const rotateArray = function(elements, startingIndex) {
 }
 
 const partitionArray = function(elements, partitionElement) {
-  let partitionedArray = [[], []];
-  for (let index = 0; index < elements.length; index++) {
-    partitionedArray[1].push(elements[index]);
-    if (partitionElement >= elements[index]) {
-      partitionedArray[0].push(elements[index]);
-      partitionedArray[1].pop();
+  return elements.reduce( function(array, element){
+    if(element <= partitionElement){
+      array[0].push(element);
+      return array;
     }
-  }
-  return partitionedArray;
+    array[1].push(element);
+    return array;
+  }, [[],[]]);
 }
 
 exports.partitionArray = partitionArray;
