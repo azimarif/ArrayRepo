@@ -25,15 +25,4 @@ let generateSerialNumber = function() {
 
 let getSerialNumber = generateSerialNumber();
 
-const assertEqual = function(object) {
-  console.log(logTestCase(object));
-  assert.equal(object.actualOutput, object.expectedOutput);
-}
-
-const assertDeepEqual = function(object) {
-  console.log(logTestCase(object));
-  assert.deepEqual(object.actualOutput, object.expectedOutput);
-}
-
-exports.assertEqual = assertEqual;
-exports.assertDeepEqual = assertDeepEqual;
+exports.logTestCase = logTestCase;
