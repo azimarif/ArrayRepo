@@ -111,12 +111,12 @@ const countNumbersBelowValue = function(numbers, thresholdValue) {
 const findIndexOfNumber = function(numbers, value) {
   return numbers.indexOf(value);
 }
-const isGreaterNumber = function(a, b) {
-  return a >= b;
+const isGreaterNumber = function(number1, number2) {
+  return number1 >= number2;
 }
 
-const isLowerNumber = function(a, b) {
-  return a <= b;
+const isLowerNumber = function(number1, number2) {
+  return number1 <= number2;
 }
 
 const isAscending = function(numbers) {
@@ -144,16 +144,6 @@ const extractDigits = function(number) {
     numberToExtract = Math.floor(numberToExtract / 10);
   }
   return reverseArray(digits);
-}
-
-const isElementExists = function(numberArray, value) {
-  let status = false;
-  for (let index = 0; index < numberArray.length; index++) {
-    if (numberArray[index] == value) {
-      status = true;
-    }
-  }
-  return status;
 }
 
 const uniqueArrayElements = function(numbers) {
