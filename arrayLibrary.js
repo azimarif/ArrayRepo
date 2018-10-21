@@ -111,25 +111,29 @@ const countNumbersBelowValue = function(numbers, thresholdValue) {
 const findIndexOfNumber = function(numbers, value) {
   return numbers.indexOf(value);
 }
+const isGreaterNumber = function(a, b) {
+  return a >= b;
+}
+
+const isLowerNumber = function(a, b) {
+  return a <= b;
+}
 
 const isAscending = function(numbers) {
-  let status = true;
-  for (let index = 0; index < numbers.length - 1; index++) {
-    if (numbers[index] > numbers[index + 1]) {
-      status = false;
-    }
-  }
-  return status;
+  return isInOrder(numbers, isGreaterNumber);
+}
+
+const isInOrder = function(array, comparer) {
+  return array.reduce(function(previousComparison, current) {
+    let { element, order } = previousComparison;
+    previousComparison.order = comparer(current, element) && order;
+    previousComparison.element = current;
+    return previousComparison;
+  }, { element: array[0], order: true }).order;
 }
 
 const isDescending = function(numbers) {
-  let status = true;
-  for (let index = 0; index < numbers.length - 1; index++) {
-    if (numbers[index + 1] > numbers[index]) {
-      status = false;
-    }
-  }
-  return status;
+  return isInOrder(numbers, isLowerNumber);
 }
 
 const extractDigits = function(number) {
