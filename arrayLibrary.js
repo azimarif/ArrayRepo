@@ -18,12 +18,12 @@ const filterEvenNumbers = function(numbers) {
   return numbers.filter(isEven);
 }
 
-const sumOfNumbersInList = function(sum, value) {
+const sumOfTwoNumbers = function(sum, value) {
   return sum + value;
 }
 
 const calculateSum = function(numbers) {
-  return numbers.reduce(sumOfNumbersInList, 0);
+  return numbers.reduce(sumOfTwoNumbers, 0);
 }
 
 const reverseArray = function(numbers) {
@@ -89,22 +89,22 @@ const mappingNamesLengthToArray = function(names) {
 }
 
 const countOddNumbers = function(numbers) {
-  return numbers.filter(isOdd).length;
+  return filterOddNumbers(numbers).length;
 }
 
 const countEvenNumbers = function(numbers) {
-  return numbers.filter(isEven).length;
+  return filterEvenNumbers(numbers).length;
 }
 
-const countNumbersAboveValue = function(numbers, value) {
+const countNumbersAboveValue = function(numbers, thresholdValue) {
   return (numbers.filter(function(number) {
-    return number > value;
+    return number > thresholdValue;
   })).length;
 }
 
-const countNumbersBelowValue = function(numbers, value) {
+const countNumbersBelowValue = function(numbers, thresholdValue) {
   return (numbers.filter(function(number) {
-    return number < value;
+    return number < thresholdValue;
   })).length;
 }
 
@@ -153,13 +153,13 @@ const isElementExists = function(numberArray, value) {
 }
 
 const uniqueArrayElements = function(numbers) {
-  let uniqueArray = [];
-  for (let index = 0; index < numbers.length; index++) {
-    if (!isElementExists(uniqueArray, numbers[index])) {
-      uniqueArray.push(numbers[index]);
+  return numbers.reduce(function(uniqueElements, number) {
+    if (uniqueElements.includes(number)) {
+      return uniqueElements;
     }
-  }
-  return uniqueArray;
+    uniqueElements.push(number);
+    return uniqueElements;
+  }, []);
 }
 
 const combineTwoArrays = function(firstElements, secondElements) {
