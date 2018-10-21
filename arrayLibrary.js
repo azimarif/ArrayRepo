@@ -30,7 +30,7 @@ const reverseArray = function(numbers) {
   return numbers.reduce(function(array, number) {
     array.unshift(number);
     return array;
-  },[] );
+  }, []);
 }
 
 const selectEverySecondNumber = function(numbers) {
@@ -58,8 +58,8 @@ const reverseFibonacciSeries = function(numberOfTerms) {
 }
 
 const maxNumberInAList = function(numbers) {
-  return numbers.reduce(function(maxNumber, number){
-    if(number > maxNumber){
+  return numbers.reduce(function(maxNumber, number) {
+    if (number > maxNumber) {
       return number;
     }
     return maxNumber;
@@ -67,8 +67,8 @@ const maxNumberInAList = function(numbers) {
 }
 
 const minNumberInAList = function(numbers) {
-  return numbers.reduce(function(minNumber, number){
-    if(number > minNumber){
+  return numbers.reduce(function(minNumber, number) {
+    if (number > minNumber) {
       return minNumber;
     }
     return number;
@@ -83,13 +83,13 @@ const averageOfArray = function(numbers) {
 }
 
 const mappingNamesLengthToArray = function(names) {
-  return names.map(function(name){
+  return names.map(function(name) {
     return name.length;
   });
 }
 
 const countOddNumbers = function(numbers) {
- return numbers.filter(isOdd).length;
+  return numbers.filter(isOdd).length;
 }
 
 const countEvenNumbers = function(numbers) {
@@ -97,13 +97,13 @@ const countEvenNumbers = function(numbers) {
 }
 
 const countNumbersAboveValue = function(numbers, value) {
- return (numbers.filter(function(number){
+  return (numbers.filter(function(number) {
     return number > value;
   })).length;
 }
 
 const countNumbersBelowValue = function(numbers, value) {
- return (numbers.filter(function(number){
+  return (numbers.filter(function(number) {
     return number < value;
   })).length;
 }
@@ -191,13 +191,10 @@ const uniqueElementsFromFirstArray = function(firstElements, secondElements) {
   return uniqueElements;
 }
 
-const isArraySubSet = function(firstElements, secondElements) {
-  for (let index = 0; index < secondElements.length; index++) {
-    if (!isElementExists(firstElements, secondElements[index])) {
-      return false;
-    }
-  }
-  return true;
+const isSubSet = function(superSetElements, subSetElements) {
+  return subSetElements.every(function(element) {
+    return superSetElements.includes(element);
+  });
 }
 
 const zipArrayElements = function(firstElements, secondElements) {
@@ -233,7 +230,7 @@ const partitionArray = function(elements, partitionElement) {
 exports.partitionArray = partitionArray;
 exports.rotateArray = rotateArray;
 exports.zipArrayElements = zipArrayElements;
-exports.isArraySubSet = isArraySubSet;
+exports.isSubSet = isSubSet;
 exports.uniqueElementsFromFirstArray = uniqueElementsFromFirstArray;
 exports.arrayIntersection = arrayIntersection;
 exports.combineTwoArrays = combineTwoArrays;
