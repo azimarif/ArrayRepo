@@ -162,7 +162,7 @@ const uniqueArrayElements = function(numbers) {
   }, []);
 }
 
-const combineTwoArrays = function(firstElements, secondElements) {
+const unionOfTwoArrays = function(firstElements, secondElements) {
   return uniqueArrayElements(firstElements.concat(secondElements));
 }
 
@@ -179,16 +179,14 @@ const arrayIntersection = function(firstElements, secondElements) {
   return intersectedArray;
 }
 
-const uniqueElementsFromFirstArray = function(firstElements, secondElements) {
-  let uniqueElements = [];
-  let count = 0;
-  for (let index = 0; index < firstElements.length; index++) {
-    if (!isElementExists(secondElements, firstElements[index])) {
-      uniqueElements[count] = firstElements[index];
-      count++;
+const uniqueElementsFromFirstSet = function(firstSet, secondSet) {
+  return firstSet.reduce(function(array, number) {
+    if (secondSet.includes(number)) {
+      return array;
     }
-  }
-  return uniqueElements;
+    array.push(number);
+    return array;
+  }, []);
 }
 
 const isSubSet = function(superSetElements, subSetElements) {
@@ -231,9 +229,9 @@ exports.partitionArray = partitionArray;
 exports.rotateArray = rotateArray;
 exports.zipArrayElements = zipArrayElements;
 exports.isSubSet = isSubSet;
-exports.uniqueElementsFromFirstArray = uniqueElementsFromFirstArray;
+exports.uniqueElementsFromFirstSet = uniqueElementsFromFirstSet;
 exports.arrayIntersection = arrayIntersection;
-exports.combineTwoArrays = combineTwoArrays;
+exports.unionOfTwoArrays = unionOfTwoArrays;
 exports.uniqueArrayElements = uniqueArrayElements;
 exports.extractDigits = extractDigits;
 exports.isDescending = isDescending;
