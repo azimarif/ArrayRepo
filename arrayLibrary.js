@@ -194,14 +194,9 @@ const zipArrayElements = function(firstArrayElements, secondArrayElements) {
   }, { index : 0,  firstArrayElements: firstArrayElements}).firstArrayElements;
 }
 
-const rotateArray = function(elements, startingIndex) {
-  startingIndex = elements.indexOf(startingIndex) +1;
+const rotateArray = function(elements, startValue) {
+  let startingIndex = elements.indexOf(startValue) +1;
   return elements.slice(startingIndex, elements.length).concat(elements.slice(0, startingIndex));
-  // let count = 0;
-  // for (let index = 0; index < startingIndex; index++) {
-  //   elements.push(elements.shift());
-  // }
-  // return elements;
 }
 
 const partitionArray = function(elements, partitionElement) {
