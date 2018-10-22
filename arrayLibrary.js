@@ -187,13 +187,10 @@ const isSubSet = function(superSetElements, subSetElements) {
 }
 
 const zipArrayElements = function(firstElements, secondElements) {
-  let zippedElements = [];
-  for (let index = 0; index < firstElements.length; index++) {
-    zippedElements[index] = [];
-    zippedElements[index][0] = firstElements[index];
-    zippedElements[index][1] = secondElements[index];
-  }
-  return zippedElements;
+  return secondElements.reduce(function(array, value, index){
+    array[index] = [array[index], value];
+    return array;
+  }, firstElements);
 }
 
 const rotateArray = function(elements, startingIndex) {
