@@ -347,7 +347,7 @@ testZipArrayElements([], [], []);
 testZipArrayElements([0], [0], [[0, 0]]);
 testZipArrayElements([0, 1], [0, 1], [[0, 0], [1, 1]]);
 testZipArrayElements([-5, -2, 0, ], [-5, 1, -4], [[-5, -5], [-2, 1], [0, -4]]);
-testZipArrayElements([30, 35, 22, 35], [20, 15, 30], [[30, 20], [35, 15], [22, 30], [35, undefined]] );
+testZipArrayElements([30, 35, 22, 35], [20, 15, 30], [[30, 20], [35, 15], [22, 30], 35] );
 
 //Rotate an Array by position
 const testRotateArray = function(input, value, expectedOutput) {
