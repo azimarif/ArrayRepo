@@ -58,11 +58,7 @@ const reverseFibonacciSeries = function(numberOfTerms) {
 }
 
 const isGreaterNumber = function(number1, number2) {
-  return number1 >= number2;
-}
-
-const isLowerNumber = function(number1, number2) {
-  return number1 <= number2;
+  return number1 > number2;
 }
 
 const comparator = function(num1, num2, comparer){
@@ -77,7 +73,7 @@ const getMaxNumber =function(num1, num2){
 }
 
 const getMinNumber = function(num1, num2){
-  return comparator(num1,num2, isLowerNumber);
+  return comparator(num1,num2, complementFunction(isGreaterNumber));
 }
 
 const maxNumberInAList = function(numbers) {
@@ -125,21 +121,31 @@ const findIndexOfNumber = function(numbers, value) {
   return numbers.indexOf(value);
 }
 
+const isNumberLowerOrEqual = function(number1, number2) {
+  return number1 <= number2;
+}
+
+const isNumberGreaterOrEqual = function(number1, number2) {
+  return number1 >= number2;
+}
+
 const isAscending = function(numbers) {
-  return isInOrder(numbers, isGreaterNumber);
+  return isInOrder(numbers,  isNumberGreaterOrEqual);
 }
 
 const isInOrder = function(array, comparer) {
-  return array.reduce(function(previousComparison, current) {
-    let { element, order } = previousComparison;
+  const comparisonResult = function(previousComparison,current){
+  let { element, order } = previousComparison;
     previousComparison.order = comparer(current, element) && order;
     previousComparison.element = current;
     return previousComparison;
-  }, { element: array[0], order: true }).order;
+  }
+
+  return array.reduce(comparisonResult, { element: array[0], order: true }).order;
 }
 
 const isDescending = function(numbers) {
-  return isInOrder(numbers, isLowerNumber);
+  return isInOrder(numbers, isNumberLowerOrEqual);
 }
 
 const extractDigits = function(number) {
@@ -192,11 +198,12 @@ const isSubSet = function(superSetElements, subSetElements) {
   });
 }
 
-const zipArrayElements = function(firstElements, secondElements) {
-  return secondElements.reduce(function(array, value, index){
-    array[index] = [array[index], value];
-    return array;
-  }, firstElements);
+const zipArrayElements = function(firstArrayElements, secondArrayElements) {
+  return secondArrayElements.reduce(function(array, value){
+    let {index, firstArrayElements} = array;
+    firstArrayElements[index] = [firstArrayElements[index], value];
+    return {index : index +1 , firstArrayElements : firstArrayElements}
+  }, { index : 0,  firstArrayElements: firstArrayElements}).firstArrayElements;
 }
 
 const rotateArray = function(elements, startingIndex) {
