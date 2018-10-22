@@ -57,23 +57,36 @@ const reverseFibonacciSeries = function(numberOfTerms) {
   return reverseArray(fibonacciTerms);
 }
 
+const isGreaterNumber = function(number1, number2) {
+  return number1 >= number2;
+}
+
+const isLowerNumber = function(number1, number2) {
+  return number1 <= number2;
+}
+
+const comparator = function(num1, num2, comparer){
+  if(comparer(num1, num2)){
+    return num1;
+  }
+  return num2;
+}
+
+const getMaxNumber =function(num1, num2){
+  return comparator(num1, num2, isGreaterNumber);
+}
+
+const getMinNumber = function(num1, num2){
+  return comparator(num1,num2, isLowerNumber);
+}
+
 const maxNumberInAList = function(numbers) {
-  return numbers.reduce(function(maxNumber, number) {
-    if (number > maxNumber) {
-      return number;
-    }
-    return maxNumber;
-  });
+  return numbers.reduce(getMaxNumber);
 }
 
 const minNumberInAList = function(numbers) {
-  return numbers.reduce(function(minNumber, number) {
-    if (number > minNumber) {
-      return minNumber;
-    }
-    return number;
-  });
-}
+  return numbers.reduce(getMinNumber);
+ }
 
 const averageOfArray = function(numbers) {
   let sum = calculateSum(numbers);
@@ -110,13 +123,6 @@ const countNumbersBelowValue = function(numbers, thresholdValue) {
 
 const findIndexOfNumber = function(numbers, value) {
   return numbers.indexOf(value);
-}
-const isGreaterNumber = function(number1, number2) {
-  return number1 >= number2;
-}
-
-const isLowerNumber = function(number1, number2) {
-  return number1 <= number2;
 }
 
 const isAscending = function(numbers) {
