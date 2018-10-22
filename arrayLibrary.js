@@ -3,8 +3,8 @@ const isEven = function(number) {
 }
 
 const complementFunction = function(functionToCompliment) {
-  return function(args) {
-    return !functionToCompliment(args);
+  return function(args1, args2) {
+    return !functionToCompliment(args1, args2);
   }
 }
 
@@ -45,15 +45,11 @@ const reverseFibonacciSeries = function(numberOfTerms) {
   let fibonacciTerms = [];
   let firstNumber = 0;
   let secondNumber = 1;
-  let nextNumber = firstNumber + secondNumber;
-  for (let count = 1; count < numberOfTerms; count++) {
-    fibonacciTerms[count] = nextNumber;
-    nextNumber = firstNumber + secondNumber;
-    let temp = secondNumber;
-    secondNumber = firstNumber + secondNumber;
-    firstNumber = temp;
+  for (let count = 0; count < numberOfTerms; count++) {
+    fibonacciTerms[count] = firstNumber;
+    firstNumber = secondNumber;
+    secondNumber = firstNumber + fibonacciTerms[count];
   }
-  fibonacciTerms[0] = 0;
   return reverseArray(fibonacciTerms);
 }
 
@@ -173,23 +169,15 @@ const unionOfTwoArrays = function(firstElements, secondElements) {
 }
 
 const arrayIntersection = function(firstSet, secondSet) {
-  return firstSet.reduce(function(set, number) {
-    if (secondSet.includes(number)) {
-      set.push(number);
-      return set;
-    }
-    return set;
-  }, []);
+  return firstSet.filter(function(number){
+    return secondSet.includes(number);
+  });
 }
 
 const uniqueElementsFromFirstSet = function(firstSet, secondSet) {
-  return firstSet.reduce(function(set, number) {
-    if (secondSet.includes(number)) {
-      return set;
-    }
-    set.push(number);
-    return set;
-  }, []);
+  return firstSet.filter(function(number){
+    return !(secondSet.includes(number))
+  });
 }
 
 const isSubSet = function(superSetElements, subSetElements) {
