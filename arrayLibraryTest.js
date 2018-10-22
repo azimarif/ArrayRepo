@@ -91,7 +91,7 @@ const testReverseFibonacciSeries = function(input, expectedOutput) {
   assert.deepEqual(actualOutput, expectedOutput);
 }
 
-testReverseFibonacciSeries(0, [0]);
+testReverseFibonacciSeries(0, []);
 testReverseFibonacciSeries(1, [0]);
 testReverseFibonacciSeries(2, [1, 0]);
 testReverseFibonacciSeries(5, [3, 2, 1, 1, 0]);
