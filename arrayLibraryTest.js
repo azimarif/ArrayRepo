@@ -357,11 +357,11 @@ const testRotateArray = function(input, value, expectedOutput) {
   assert.deepEqual(actualOutput, expectedOutput);
 }
 
-testRotateArray([], 5, [undefined]);
+testRotateArray([], 5, []);
 testRotateArray([0], 4, [0]);
-testRotateArray([0, 1, 2], 1, [1, 2, 0]);
+testRotateArray([0, 1, 2], 1, [2, 0, 1]);
 testRotateArray([1, -5, -2, 0], 0, [1, -5, -2, 0]);
-testRotateArray([30, 35, 22, 20, 15], 22, [22, 20, 15, 30, 35]);
+testRotateArray([30, 35, 22, 20, 15], 22, [20, 15, 30, 35, 22]);
 
 //Divide the array in two parts for the given number
 const testPartitionArray = function(input, value, expectedOutput) {
