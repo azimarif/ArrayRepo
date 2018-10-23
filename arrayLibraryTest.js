@@ -5,7 +5,7 @@ const {
   isEven, complimentary, filterOddNumbers, filterEvenNumbers,
   sumOfNumbersInList, calculateSum, reverseArray, selectEverySecondNumber,
   reverseFibonacciSeries, maxNumberInAList, minNumberInAList, averageOfArray,
-  mappingNamesLengthToArray, countOddNumbers, countEvenNumbers,
+  mapNameLengthToArray, countOddNumbers, countEvenNumbers,
   countNumbersAboveValue, countNumbersBelowValue, findIndexOfNumber,
   isAscending, isDescending, extractDigits,
   isElementExists, uniqueArrayElements, unionOfTwoArrays, arrayIntersection,
@@ -141,8 +141,8 @@ testAverageOfArray([30, 35, 20, 15], 25.00);
 
 //Mapping lengths
 const testMappingNamesLengthToArray = function(input, expectedOutput) {
-  let actualOutput = mappingNamesLengthToArray(input);
-  let message = 'mappingNamesLengthToArray';
+  let actualOutput = mapNameLengthToArray(input);
+  let message = 'mapNameLengthToArray';
   console.log(logTestCase({ input, expectedOutput, actualOutput, message }));
   assert.deepEqual(actualOutput, expectedOutput);
 }
