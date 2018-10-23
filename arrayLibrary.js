@@ -105,16 +105,20 @@ const countEvenNumbers = function(numbers) {
   return filterEvenNumbers(numbers).length;
 }
 
-const countNumbersAboveValue = function(numbers, thresholdValue) {
-  return (numbers.filter(function(number) {
+const numberCompariosn = function(thresholdValue){
+  return function(number){
     return number > thresholdValue;
-  })).length;
+  }
+}
+
+const countNumbersAboveValue = function(numbers, thresholdValue) {
+  let isNumberGreater = numberCompariosn(thresholdValue);
+  return numbers.filter(isNumberGreater).length;
 }
 
 const countNumbersBelowValue = function(numbers, thresholdValue) {
-  return (numbers.filter(function(number) {
-    return number < thresholdValue;
-  })).length;
+  let isNumberLower = complementFunction(numberCompariosn(thresholdValue));
+  return numbers.filter(isNumberLower).length;
 }
 
 const findIndexOfNumber = function(numbers, value) {
