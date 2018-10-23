@@ -212,15 +212,20 @@ const rotateArray = function(elements, startValue) {
   return elements.slice(startingIndex, elements.length).concat(elements.slice(0, startingIndex));
 }
 
-const partitionArray = function(elements, partitionElement) {
-  return elements.reduce( function(array, element){
+const filterElements = function(elements, partitionElement){
+   return function(array, element){
     if(element <= partitionElement){
       array[0].push(element);
       return array;
     }
     array[1].push(element);
     return array;
-  }, [[],[]]);
+  }
+}
+
+const partitionArray = function(elements, partitionElement) {
+  let filteredElements = filterElements(elements, partitionElement);
+  return elements.reduce(filteredElements, [[],[]]);
 }
 
 exports.partitionArray = partitionArray;
