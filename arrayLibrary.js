@@ -134,21 +134,18 @@ const isNumberGreaterOrEqual = function(number1, number2) {
 }
 
 const isAscending = function(numbers) {
-  return isInOrder(numbers,  isNumberGreaterOrEqual);
+  return numbers.reduce( isInOrder,  { condition : true, element: numbers[0]}).condition;
 }
 
-const isInOrder = function(array, comparer) {
-  const comparisonResult = function(previousComparison,current){
-  let { element, order } = previousComparison;
-    previousComparison.order = comparer(current, element) && order;
-    previousComparison.element = current;
-    return previousComparison;
-  }
-  return array.reduce(comparisonResult, { element: array[0], order: true }).order;
+const isInOrder = function(array, currentElement) {
+  let {condition, element} = array;
+  condition = (condition && currentElement >= element );
+  return {condition : condition, element: currentElement};
 }
 
 const isDescending = function(numbers) {
-  return isInOrder(numbers, isNumberLowerOrEqual);
+  numbers = numbers.reverse();
+  return numbers.reduce(isInOrder ,{ condition: true, element: numbers[0]}).condition;
 }
 
 const extractDigits = function(number) {
