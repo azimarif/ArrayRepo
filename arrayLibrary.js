@@ -144,7 +144,6 @@ const isInOrder = function(array, comparer) {
     previousComparison.element = current;
     return previousComparison;
   }
-
   return array.reduce(comparisonResult, { element: array[0], order: true }).order;
 }
 
@@ -177,9 +176,8 @@ const unionOfTwoArrays = function(firstElements, secondElements) {
 }
 
 const arrayIntersection = function(firstSet, secondSet) {
-  return firstSet.filter(function(number){
-    return secondSet.includes(number);
-  });
+  let checkList = isElementExists(secondSet);
+  return firstSet.filter(checkList);
 }
 
 const uniqueElementsFromFirstSet = function(firstSet, secondSet) {
