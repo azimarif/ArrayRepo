@@ -26,11 +26,13 @@ const calculateSum = function(numbers) {
   return numbers.reduce(sumOfTwoNumbers, 0);
 }
 
+const insertAtBegin= function(array,number){
+  array.unshift(number);
+  return array;
+}
+
 const reverseArray = function(numbers) {
-  return numbers.reduce(function(array, number) {
-    array.unshift(number);
-    return array;
-  }, []);
+  return numbers.reduce(insertAtBegin,[]);
 }
 
 const selectEverySecondNumber = function(numbers) {
