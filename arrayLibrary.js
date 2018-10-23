@@ -89,10 +89,12 @@ const averageOfArray = function(numbers) {
   return average.toFixed(2);
 }
 
-const mappingNamesLengthToArray = function(names) {
-  return names.map(function(name) {
-    return name.length;
-  });
+const getStringLength = function(name){
+  return name.length;
+}
+
+const mapNameLengthToArray = function(names) {
+  return names.map(getStringLength);
 }
 
 const countOddNumbers = function(numbers) {
@@ -228,7 +230,7 @@ exports.countNumbersBelowValue = countNumbersBelowValue;
 exports.countNumbersAboveValue = countNumbersAboveValue;
 exports.countEvenNumbers = countEvenNumbers;
 exports.countOddNumbers = countOddNumbers;
-exports.mappingNamesLengthToArray = mappingNamesLengthToArray;
+exports.mapNameLengthToArray =mapNameLengthToArray;
 exports.averageOfArray = averageOfArray;
 exports.minNumberInAList = minNumberInAList;
 exports.maxNumberInAList = maxNumberInAList;
