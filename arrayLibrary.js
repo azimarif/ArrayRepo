@@ -161,14 +161,15 @@ const extractDigits = function(number) {
   return reverseArray(digits);
 }
 
+const insertUniqueElement = function(uniqueElementsList, number){
+  if (!uniqueElementsList.includes(number)) {
+    uniqueElementsList.push(number);
+  }
+  return uniqueElementsList;
+}
+
 const uniqueArrayElements = function(numbers) {
-  return numbers.reduce(function(uniqueElements, number) {
-    if (uniqueElements.includes(number)) {
-      return uniqueElements;
-    }
-    uniqueElements.push(number);
-    return uniqueElements;
-  }, []);
+  return numbers.reduce(insertUniqueElement, []);
 }
 
 const unionOfTwoArrays = function(firstElements, secondElements) {
