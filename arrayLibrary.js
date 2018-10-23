@@ -181,9 +181,8 @@ const arrayIntersection = function(firstSet, secondSet) {
 }
 
 const uniqueElementsFromFirstSet = function(firstSet, secondSet) {
-  return firstSet.filter(function(number){
-    return !(secondSet.includes(number))
-  });
+  let checkList = complementFunction(isElementExists(secondSet));
+  return firstSet.filter(checkList);
 }
 
 const isElementExists = function (list){
