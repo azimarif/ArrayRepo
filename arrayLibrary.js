@@ -184,18 +184,27 @@ const uniqueElementsFromFirstSet = function(firstSet, secondSet) {
   });
 }
 
+const isElementExists = function (list){
+  return function(element){
+    return list.includes(element);
+  }
+}
+
 const isSubSet = function(superSetElements, subSetElements) {
-  return subSetElements.every(function(element) {
-    return superSetElements.includes(element);
-  });
+  let checkList = isElementExists(superSetElements);
+  return subSetElements.every(checkList);
+}
+
+const zipElements = function(array, value){
+  let {index, firstArrayElements} = array;
+  firstArrayElements[index] = [firstArrayElements[index], value];
+  return {index : index +1 , firstArrayElements : firstArrayElements}
 }
 
 const zipArrayElements = function(firstArrayElements, secondArrayElements) {
-  return secondArrayElements.reduce(function(array, value){
-    let {index, firstArrayElements} = array;
-    firstArrayElements[index] = [firstArrayElements[index], value];
-    return {index : index +1 , firstArrayElements : firstArrayElements}
-  }, { index : 0,  firstArrayElements: firstArrayElements}).firstArrayElements;
+  let zippedArray = secondArrayElements;
+  return zippedArray.reduce(zipElements, 
+    { index: 0, firstArrayElements: firstArrayElements }).firstArrayElements;
 }
 
 const rotateArray = function(elements, startValue) {
