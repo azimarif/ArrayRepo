@@ -125,14 +125,6 @@ const findIndexOfNumber = function(numbers, value) {
   return numbers.indexOf(value);
 }
 
-const isNumberLowerOrEqual = function(number1, number2) {
-  return number1 <= number2;
-}
-
-const isNumberGreaterOrEqual = function(number1, number2) {
-  return number1 >= number2;
-}
-
 const isAscending = function(numbers) {
   return numbers.reduce( isInOrder,  { condition : true, element: numbers[0]}).condition;
 }
